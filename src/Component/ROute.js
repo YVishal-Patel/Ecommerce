@@ -12,7 +12,7 @@ function ROute({cart, setCart, handleCart, handleWishlist,cartL }) {
   return (
       <>
       <Header cartL={cartL} />
-      {/* <Routes>
+      <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/viewpage/:id' element={<ViewPage handleCart={handleCart}  handleWishlist={handleWishlist} />}/>
           <Route path='/sign-up' element={<SignUp />} />
@@ -20,7 +20,7 @@ function ROute({cart, setCart, handleCart, handleWishlist,cartL }) {
           <Route path="/card"  element={<Card cart={cart} setCart={setCart} handleCart={handleCart}  handleWishlist={handleWishlist} />} />
 
 
-      </Routes> */}
+      </Routes>
       </>
   )
 }

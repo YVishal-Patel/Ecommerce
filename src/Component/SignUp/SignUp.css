@@ -4,7 +4,7 @@
 }
 .badgeData{
     position: absolute;
-    right: 3.5rem;
+    right: 3.1rem;
     top: 1.2rem;
     color: white;
     background-color: red;
@@ -45,6 +45,12 @@
     margin-left: -2%;
 }
 
+.small-screen{
+    display: none;
+}
+.smaller-screen{
+    display: none;
+}
 .main-div{
     width: 100%;
 }
@@ -145,10 +151,11 @@ margin: 1.7rem 0.6rem 0 1rem;
     outline:none;
     border: none;
     box-shadow: 0px 1px 4px rgba(0,0,0,0.2);
+    height: 520px;
 }
  .embed-responsive,.card-img-top{
     width: 100%;
-    max-height: 300px;
+    height: 300px;
     object-fit: cover;
     margin-top: -0.26rem;
     border-radius: 0px;
@@ -306,7 +313,98 @@ margin-left: 1.4rem;
     transition: 0.5s linear;
     color: #fff !important;
     opacity: 0.7;
-
+}
+.nav-bar{
+    display: none;
+    position: absolute;
+    top: 3.7rem;
+    left: 0;
+    width: 100%;
+    background-color: var(--bgcolor);
+    text-align: center;
+}
+/* #toggle-menu {
+    display: none;
+}
+#toggle-menu:checked ~ .nav-bar {
+    display: block;
+} */
+#menuToggle {
+    display: none;
+}
+.menu-icon {
+    display: none;
+}
+/*Configurações Globais*/
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+/*Início das configurações da header*/
+header {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-family: sans-serif;
+    background-color: #f1c40f;
+}
+.brand {
+    width: auto;
+    height: 100%;
+    float: left;
+    margin: 0 0 0 5%;
+}
+/*Início das configurações da Navigation*/
+.menu {
+    width: 60%;
+    height: 100%;
+    float: right;
+}
+.menu ul {
+    width: 100%;
+    height: inherit;
+    margin: 0;
+    padding: 0;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+.menu ul a {
+    width: 20%;
+    height: inherit;
+    color: #222;
+    display: inline-block;
+}
+.menu ul a:hover {
+    background-color: #222;
+    color: #fff;
+}
+#menuToggle {
+    display: none;
+}
+.menu-icon {
+    display: none;
+}
+.fa-bars{
+font-size: 19px;
+border: none;
+color: rgb(47, 46, 46);
+}
+.menu-icon {
+    color: white;
+    cursor: pointer;
+    display: none;
 }
 @media screen and (max-width: 992px){
     .small-logo{

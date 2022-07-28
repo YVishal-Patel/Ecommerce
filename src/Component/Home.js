@@ -4,12 +4,15 @@
             import {Link} from 'react-router-dom'
             import Swal from 'sweetalert2'
            import HomeCarousel from './HomeData/HomeCarousel'
-import Slider from './HomeData/CarouselSlider'
+          import Slider from './HomeData/CarouselSlider'
+          import Slider1 from './HomeData/CarouselSlider1'
+          import Slider2 from './HomeData/CarouselSlider2'
 
             function Home() {
                 let data = newArr
 
                 const [HomeData, setHomeData] = useState(data)
+                // console.log(HomeData)
              
                 
                 
@@ -46,13 +49,21 @@ import Slider from './HomeData/CarouselSlider'
                     <>
                         <HomeCarousel data={data} />
                 <div className="container">
-                        <Slider />                        
+                  <div className="largeScreen">
+                        <Slider /> 
+                        </div>
+                        <div className="small-screen">
+                        <Slider1 />
+                          </div>   
+                          <div className="smaller-screen">
+                          <Slider2 />                    
+                          </div>
                     <div className="row">
                     {
                       HomeData.map((item, id)=>{
 
                 
-                    return  <div key={id} className="col-3 main-card-div ">
+                    return  <div key={id} className="col-xl-3 col-lg-4 col-md-6 col-sm-12 main-card-div ">
                         <div class="card mt-5 " >
                             <div className="icons d-flex  ">
                         <svg xmlns="http://www.w3.org/2000/svg" class="home-edit-icon"  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

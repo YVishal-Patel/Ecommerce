@@ -32,8 +32,8 @@ export default class CustomArrows extends Component {
     const settings = {
       dots: true,
       infinite: true,
-      slidesToShow: 6,
-      slidesToScroll: 1,
+      slidesToShow: 3,
+      slidesToScroll: 3,
       nextArrow: <SampleNextArrow  />,
       prevArrow: <SamplePrevArrow />
     };

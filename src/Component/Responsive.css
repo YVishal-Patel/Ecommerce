@@ -1,1 +1,230 @@
 /* All pages media querry are written here */
+
+@media only screen and (min-width: 120px) and (max-width: 480px)  {
+
+    /*------------------------------- Header ----------------------------------  */
+   
+    .main-div{
+        display: none !important;
+    }   
+    .container-header-data{
+        display: flex;
+        flex-direction: column !important;
+        justify-content:center;
+        align-items: center;
+    }  
+    .header-data{
+    text-decoration: none;
+    color: #fff;
+    padding: 0 0.7rem;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 1rem 0;
+    } 
+    .small-logo{
+        font-size: 1.2rem;
+    }
+    .top-header-div{
+        display: flex;
+        justify-content: start;
+        height: 45px;
+    }
+    .search-icon{
+        position: absolute;
+        left: 70%;
+        top: 4.4rem;
+        cursor: pointer;
+    }
+    .badgeData{
+        position: absolute;
+        right: 1rem;
+        top: 3.6rem;
+        color: white;
+        background-color: red;
+    }
+    .search-field{
+        width: 70%;
+    }
+    .user-icon1{
+        display: flex;
+        justify-content: center !important;
+        margin-left: -0.4rem;
+    }
+    .user-icon{
+        /* width: 25px !important; */
+        display: none;
+    }
+    .navbar-toggler-icon {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        vertical-align: middle;
+    }
+    .small-screen{
+        display: none;
+    }
+    .largeScreen{
+        display: none;
+    }
+    .main-card-div {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 1rem;
+    }
+
+}
+
+
+@media only screen and (min-width: 481px) and (max-width: 768px)  {
+
+    /*------------------------------- Header ----------------------------------  */
+
+    .main-div{
+        display: none !important;
+    }   
+    .container-header-data{
+        display: flex;
+        flex-direction: column !important;
+        justify-content:center;
+        align-items: center;
+    }  
+    .header-data{
+    text-decoration: none;
+    color: #fff;
+    padding: 0 0.7rem;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 1rem 0;
+
+    } 
+    .small-logo{
+        font-size: 1.6rem;
+    }
+    .top-header-div{
+        display: flex;
+        justify-content: start;
+        height: 45px;
+    }
+    .search-icon{
+        position: absolute;
+        left: 74%;
+        top: 5rem;
+        cursor: pointer;
+    }
+    .badgeData{
+        position: absolute;
+        right: 1.5rem;
+        top: 4.1rem;
+        color: white;
+        background-color: red;
+    }
+    .user-icon{
+        /* width: 25px !important; */
+        display: none;
+    }
+    .navbar-toggler-icon {
+        display: inline-block;
+        width: 1.1em;
+        height: 1.1em;
+        vertical-align: middle;
+    }
+    .small-screen{
+        display: none;
+    }
+    .largeScreen{
+        display: none;
+    }
+}
+
+
+@media only screen and (min-width: 768px)  and (max-width: 992px)  {
+
+    /*------------------------------- Header ----------------------------------  */
+    
+.main-div{
+    display: none !important;
+}
+.header-data{
+    text-decoration: none;
+    color: #fff;
+    padding: 0 0.7rem;
+    font-size: 13px;
+    font-weight: 500;
+}   
+.top-header-div{
+    display: flex;
+    justify-content: start;
+    height: 45px;
+}
+.search-icon{
+    position: absolute;
+    left: 76%;
+    top: 5.6rem;
+    cursor: pointer;
+}
+.user-icon{
+    /* width: 25px !important; */
+    display: none;
+}
+.badgeData{
+    position: absolute;
+    right: 3.6rem;
+    top: 4.4rem;
+    color: white;
+    background-color: red;
+}
+.smaller-screen{
+    display: block;
+}   
+.small-screen{
+    display: none;
+}
+.largeScreen{
+    display: none;
+}
+}
+.menu-icon {
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+@media only screen and (min-width: 993px) and (max-width: 1200px)  {
+
+/*------------------------------- Header ----------------------------------  */
+.main-div1{
+    display: none;
+}
+.header-data{
+    text-decoration: none;
+    color: #fff;
+    padding: 0 1rem;
+    font-size: 15px;
+    font-weight: 500;
+}   
+
+
+.small-screen{
+    display: block;
+}
+.largeScreen{
+    display: none;
+}
+}
+
+
+
+@media only screen and  (min-width: 1201px)  {
+    .main-div1{
+        display: none;
+    }
+    .header-data{
+        text-decoration: none;
+        color: #fff;
+        padding: 0 1.2rem;
+        font-size: 16px;
+        font-weight: 500;
+    }    
+}

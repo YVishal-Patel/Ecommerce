@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import SignIn from './Component/Sign/SignIn'
+import SignUp from './Component/SignUp/SignUp'
+import { BrowserRouter,Navigate, useNavigate } from 'react-router-dom'
+import ROute from './Component/ROute'
+import CalculateValue from './Component/CalculateValue'
+import Swal from 'sweetalert2'
+
+
+
 
 function App() {
+  const [cart, setCart] = useState([])
+const [wishlist, Setwishlist] = useState([])
+
+
+const handleWishlist = (item) => {
+  if (wishlist.indexOf(item) !== -1) return;
+  Setwishlist([...wishlist, item]);
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Item Added to wishlist',
+    showConfirmButton: false,
+    timer: 1500
+  })
+  
+};
+console.log(wishlist)
+
+const handleCart = (item) => {
+  if (cart.indexOf(item) !== -1) return;
+  setCart([...cart, item]);
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Item Added to Cart',
+    showConfirmButton: false,
+    timer: 1500
+  })
+};
+console.log(cart)
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <BrowserRouter>
+     <ROute cart={cart} setCart={setCart} handleCart={handleCart} handleWishlist={handleWishlist} cartL ={cart.length} />
+    </BrowserRouter>
+    {/* <CalculateValue /> */}
+    </>
+  )
 }
 
-export default App;
+export default App

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './SignUp/SignUp.css'
-import { Link } from 'react-router-dom'
 import './Responsive.css'
+import { Link } from 'react-router-dom'
 
 function Header({cartL}) {
 
@@ -46,8 +46,8 @@ function Header({cartL}) {
       </div>
       <div className="container d-flex justify-content-center  mt-3 d-flex w-100">
         <ul className="d-flex justify-content-center">
-          <li className='list'><Link className='header-data'  to='#'> New Arrival</Link></li>
-          <li  className='list'><Link className='header-data' to='#'>Sale</Link></li>
+          <li className='list'><Link className='header-data'  to='/cart'> New Arrival</Link></li>
+          <li  className='list'><Link className='header-data' to='/wishlist'>Sale</Link></li>
           <li  className='list'><Link className='header-data' to='#'>Clothing</Link></li>
           <li  className='list'><Link className='header-data' to='#'>Dresses</Link></li>
           <li  className='list'><Link className='header-data' to='#'>Toys</Link></li>
@@ -89,11 +89,13 @@ function Header({cartL}) {
   <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
 </svg>
 
-            <Link to="/card">
+            
           <svg xmlns="http://www.w3.org/2000/svg" class="user-icon1 user-iconed" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <Link to="/cart">
   <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-</svg>
   </Link>
+</svg>
+  
           <span class="badge badgeData">{cartL}</span>
 
         </div>

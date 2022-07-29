@@ -13,6 +13,7 @@ function Card({cart, setCart}) {
   const [ price, setPrice] = useState()
   const [ totalPrice, setTotalPrice] = useState()
 
+
   useEffect(()=>{
     handlePrice()
     totalValue()

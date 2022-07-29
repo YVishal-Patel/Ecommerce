@@ -6,9 +6,10 @@ import Header from './Header'
 import SignUp from './SignUp/SignUp'
 import Edit from './Edit'
 import Card from './Card'
+import Wishlist from './Wishlist/Wishlist'
 
 
-function ROute({cart, setCart, handleCart, handleWishlist,cartL }) {
+function ROute({cart, setCart, handleCart, handleWishlist,cartL, Setwishlist, wishlist }) {
   return (
       <>
       <Header cartL={cartL} />
@@ -17,7 +18,8 @@ function ROute({cart, setCart, handleCart, handleWishlist,cartL }) {
           <Route path='/viewpage/:id' element={<ViewPage handleCart={handleCart}  handleWishlist={handleWishlist} />}/>
           <Route path='/sign-up' element={<SignUp />} />
           <Route path="/edit/:id"  element={<Edit/>} />
-          <Route path="/card"  element={<Card cart={cart} setCart={setCart} handleCart={handleCart}  handleWishlist={handleWishlist} />} />
+          <Route path="/cart"  element={<Card cart={cart} setCart={setCart} handleCart={handleCart}  handleWishlist={handleWishlist} />} />
+          <Route  path="/wishlist" element={<Wishlist Setwishlist={Setwishlist} handleWishlist={handleWishlist} wishlist={wishlist} />} />
 
 
       </Routes>

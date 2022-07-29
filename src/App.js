@@ -24,9 +24,8 @@ const handleWishlist = (item) => {
     showConfirmButton: false,
     timer: 1500
   })
-  
 };
-console.log(wishlist)
+// console.log(wishlist)
 
 const handleCart = (item) => {
   if (cart.indexOf(item) !== -1) return;
@@ -39,13 +38,13 @@ const handleCart = (item) => {
     timer: 1500
   })
 };
-console.log(cart)
+// console.log(cart)
 
 
   return (
     <>
     <BrowserRouter>
-     <ROute cart={cart} setCart={setCart} handleCart={handleCart} handleWishlist={handleWishlist} cartL ={cart.length} />
+     <ROute cart={cart} setCart={setCart} wishlist={wishlist} handleCart={handleCart} handleWishlist={handleWishlist} Setwishlist={Setwishlist} cartL ={cart.length} />
     </BrowserRouter>
     {/* <CalculateValue /> */}
     </>

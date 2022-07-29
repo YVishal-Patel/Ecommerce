@@ -26,6 +26,7 @@
 .table-data{
     box-shadow: 0px 5px 7px rgba(0,0,0,0.2);
     background-color: white;
+    height: fit-content;
 }
 .table-img-data{
     margin-top: 0.8rem;
@@ -65,10 +66,14 @@ body{
 }
 
 .card-sidebar{
+    padding-bottom:3% ;
     margin-left: 2.2rem;
-    height: 65vh;
+    height: fit-content;
     background-color: white;
     box-shadow: 0px 5px 7px rgba(0,0,0,0.2);
+}
+.small-screen-cart-container{
+    display: none;
 }
 
 .price-heading{
@@ -125,4 +130,7 @@ body{
       margin-top: -2.35rem;
       font-weight: 600;
   }
-  
+  .search-icon{
+      font-size: 20px  !important;
+      color: #000 !important;
+  } 

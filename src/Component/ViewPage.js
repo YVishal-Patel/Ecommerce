@@ -46,7 +46,7 @@ function ViewPage({handleCart,  handleWishlist}) {
                </div>
                </div>
            </div>
-              <div className="col-1"></div>
+              <div className="col-1 data"></div>
              <div id="viewpage-img" className="col-12 col-md-5 col-sm-12  view-types-data">
            <div className=" img-type">
                <img src={item.ProductImg} alt="not found" width='100%' height='430px' />

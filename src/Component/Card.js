@@ -46,8 +46,8 @@ const handlePrice = () =>{
 
       <div  className="container  data-table">
            
-           <div className="row mt-3">
-             <div className="col-8 table-data">
+           <div className="row mt-3 ">
+             <div className="col-8   table-data">
                
 
 
@@ -79,6 +79,7 @@ const handlePrice = () =>{
 
 
 </div>
+    {/* <div className="col-1"></div> */}
              <div className="col-4 card-sidebar">
              <div className="total-value d-flex ">
                   <p className='price-heading m-3'>Price Details</p>

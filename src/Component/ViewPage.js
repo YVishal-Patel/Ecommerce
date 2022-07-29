@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import newArr from './Data'
 import { useParams } from 'react-router-dom'
 import './SignUp/SignUp.css'
+import './Responsive.css'
 
 
 function ViewPage({handleCart,  handleWishlist}) {
@@ -16,10 +17,10 @@ function ViewPage({handleCart,  handleWishlist}) {
   return (
       <>    
       {price.map((item)=>{
-     return   <div key={item.id} className="container-fluid main-div ">
+     return   <div key={item.id} className="container-fluid main-div-view ">
       <div className="container">
- <div className="row mt-5">
-           <div className="col-7">
+ <div className="row mt-4">
+           <div id="viewpage-data" className="col-md-6 col-sm-12 ">
                       <div className="data-type">
                <div className="name-type">
                    <span className="name-type1"> {item.ProductName} </span>
@@ -46,11 +47,10 @@ function ViewPage({handleCart,  handleWishlist}) {
                </div>
            </div>
               <div className="col-1"></div>
-             <div className="col-4 view-types-data">
+             <div id="viewpage-img" className="col-12 col-md-5 col-sm-12  view-types-data">
            <div className=" img-type">
-               <img src={item.ProductImg} alt="not found" width='100%' height='470px' />
+               <img src={item.ProductImg} alt="not found" width='100%' height='430px' />
            </div>   
-           {/* {console.log(item)} */}
            <div className="btns d-flex justify-content-between">
            <div className="wishlist-btn">
                    <button onClick={()=>handleWishlist(item)} className="wishlist-btn1">Add to Wishlist <i class="fa-solid fa-right-long arrow1"></i></button>
@@ -65,6 +65,9 @@ function ViewPage({handleCart,  handleWishlist}) {
       </div>
       </div>  
       })}
+
+
+{/* --------------------------------- small screen ------------------------------------------- */}
 
      
       </>

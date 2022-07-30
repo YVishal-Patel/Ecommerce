@@ -43,10 +43,10 @@ const handleCart = (item) => {
 
   return (
     <>
+    
     <BrowserRouter>
      <ROute cart={cart} setCart={setCart} wishlist={wishlist} handleCart={handleCart} handleWishlist={handleWishlist} Setwishlist={Setwishlist} cartL ={cart.length} />
-    </BrowserRouter>
-    {/* <CalculateValue /> */}
+    </BrowserRouter>  
     </>
   )
 }

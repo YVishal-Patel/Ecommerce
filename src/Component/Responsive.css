@@ -17,9 +17,10 @@
     text-decoration: none;
     color: #fff;
     padding: 0 0.7rem;
-    font-size: 22px;
+    font-size: 22px !important;
     font-weight: 600;
     margin: 1rem 0;
+    border: none !important;
     } 
     .small-logo{
         font-size: 1.2rem;
@@ -138,10 +139,57 @@
             margin-top: -2rem;
         }
 
-        .fa-solid {
+        .fa-bars {
             font-size: 20px !important;
             color: #fff !important;
         }
+
+        /* -------------------------- wislist -------------------- */
+
+        .wish-div-main-bg-container{
+            display: none;
+        }
+        .small-wish-div-main{
+            display: block !important;
+        }
+
+        /* --------------------- Wishlist   -------------------------------------------- */
+        .wishlist-img{
+            width: 80px;
+            height: 90px;
+        }
+        .small-scr-wish-images{
+            margin-left: -1.4rem !important;
+        }
+        .wishlist-data{
+            font-size: 15px !important;
+        }
+        .wish-price{
+            font-size: 13px;
+        }
+        .rating-value-wish{
+            font-size: 12px !important;
+        }
+        .wish-description{
+            font-size: 13px !important;
+        }
+        .wish-operation{
+      display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+    margin-top: 1rem !important;
+    flex-direction: row !important;
+        }
+        .fa-trash{
+        font-size: 16px !important;
+        }
+        .wish-small-container{
+            margin-top: 1rem;
+        }
+        .wish-heading {
+            font-size: 1.2rem !important;
+        }
+
 }
 
 
@@ -164,9 +212,10 @@
     text-decoration: none;
     color: #fff;
     padding: 0 0.7rem;
-    font-size: 22px;
+    font-size: 22px !important;
     font-weight: 600;
     margin: 1rem 0;
+    border: none !important;
 
     } 
     .small-logo{
@@ -254,16 +303,61 @@ div#viewpage-img{
         height: 27px !important;
     }
 
-    .fa-solid {
+    .fa-bars {
         font-size: 24px !important;
         color: #fff !important;
     }
+
+
+.main-wish-container-row{
+    margin: 0.6rem 0;
+}
+.wishlist-img{
+    width: 100px;
+}
+.wish-data{
+    margin-left: 1rem !important;
+}
+
+/* --------------  Wishlist page ------------- */
+
+.wish-heading{
+    font-size: 1.2rem;
+}
+.main-wish-container-row{
+    margin: 0.6rem 0 !important;
+}
+
+.wishlist-data{
+    font-size: 16px !important;
+}
+.wish-description{
+    font-size: 13px !important;
+}
+.wish-price{
+    font-size: 14px !important;
+}
+.fa-trash{
+    font-size: 16px !important;
+    margin-left: -4px;
+}
+.rating-value-wish{
+    font-size: 12px !important;
+}
+.wishlist-img{
+    width: 80px;
+}
+.wish-data{
+    margin-left: 1rem !important;
+}
+
+
 }
 
 
 /* -------------------- Media query (min-width: 768px)  and (max-width: 992px) ---------------  */
 
-@media only screen and (min-width: 768px)  and (max-width: 992px)  {
+@media only screen and (min-width: 769px)  and (max-width: 992px)  {
 
     /*------------- Header ----------------  */
     
@@ -274,7 +368,8 @@ div#viewpage-img{
     text-decoration: none;
     color: #fff;
     padding: 0 0.7rem;
-    font-size: 13px;
+    font-size: 13px !important;
+    border: none !important;
     font-weight: 500;
 }   
 .top-header-div{
@@ -285,7 +380,7 @@ div#viewpage-img{
 .search-icon{
     position: absolute;
     left: 76%;
-    top: 5.6rem;
+    top: 5.4rem;
     cursor: pointer;
 }
 .user-icon{
@@ -353,10 +448,26 @@ div#viewpage-img{
     margin: 0.4rem 0;
 }
 
-.fa-solid {
+.fa-bars {
     font-size: 26px !important;
     color: #fff !important;
 }
+.container-header-data{
+    margin-left: -2rem;
+}
+
+/* --------------  Wishlist page ------------- */
+
+.main-wish-container-row{
+    margin: 0.6rem 0;
+}
+.wishlist-img{
+    width: 100px;
+}
+.wish-data{
+    margin-left: 1rem !important;
+}
+
 }
 
 /* -------------------- Media query (min-width: 993px) and (max-width: 1200px) ---------------  */
@@ -372,8 +483,9 @@ div#viewpage-img{
     text-decoration: none;
     color: #fff;
     padding: 0 1rem;
-    font-size: 15px;
+    font-size: 15px !important;
     font-weight: 500;
+    border: none !important;
 }   
 
 
@@ -424,8 +536,9 @@ div#viewpage-img{
         text-decoration: none;
         color: #fff;
         padding: 0 1.2rem;
-        font-size: 16px;
+        font-size: 16px !important;
         font-weight: 500;
+        border: none !important;
     }    
 
 

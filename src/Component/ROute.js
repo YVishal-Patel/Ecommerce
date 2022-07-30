@@ -19,7 +19,7 @@ function ROute({cart, setCart, handleCart, handleWishlist,cartL, Setwishlist, wi
           <Route path='/sign-up' element={<SignUp />} />
           <Route path="/edit/:id"  element={<Edit/>} />
           <Route path="/cart"  element={<Card cart={cart} setCart={setCart} handleCart={handleCart}  handleWishlist={handleWishlist} />} />
-          <Route  path="/wishlist" element={<Wishlist Setwishlist={Setwishlist} handleWishlist={handleWishlist} wishlist={wishlist} />} />
+          <Route  path="/wishlist" element={<Wishlist Setwishlist={Setwishlist} handleWishlist={handleWishlist} wishlist={wishlist} Card cart={cart} setCart={setCart}/>} />
 
 
       </Routes>

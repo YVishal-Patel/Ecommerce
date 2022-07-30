@@ -14,15 +14,15 @@
                 ProductImg:img,
                 quantity:1},
 
-            {id:1, ProductName:"Women Kurta and Palazzo", ProductPrice: 999, ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.", quantity:1 ,ProductImg:img4, },
+            {id:1, ProductName:"Men Slim Fit   Shirt", ProductPrice: 999, ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.", quantity:1 ,ProductImg:img4, },
 
-            {id:2, ProductName:"Women Kurta and Palazzo", ProductPrice: 599, ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",quantity:1, ProductImg:img2},
+            {id:2, ProductName:"Men Regular Casual Shirt", ProductPrice: 599, ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",quantity:1, ProductImg:img2},
 
-            {id:3, ProductName:"Women Kurta and Palazzo", ProductPrice: 499, ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content." , quantity:1, ProductImg:img4},
+            {id:3, ProductName:"Men Slim Fit  Casual Shirt", ProductPrice: 499, ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content." , quantity:1, ProductImg:img4},
 
-            {id:4, ProductName:"Women Kurta and Palazzo", ProductPrice: 699, ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",quantity:1, ProductImg:img2},
+            {id:4, ProductName:"Men  Checkered  Shirt", ProductPrice: 699, ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",quantity:1, ProductImg:img2},
 
-            {id:5, ProductName:"Women Kurta and Palazzo", ProductPrice: 799, ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.", quantity:1,ProductImg:img3},
+            {id:5, ProductName:"Men Slim Fit   Shirt", ProductPrice: 799, ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.", quantity:1,ProductImg:img3},
 
             {id:6, ProductName:"Women Kurta and Palazzo", ProductPrice: 299, ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",quantity:1,ProductImg:img},
 

@@ -284,10 +284,10 @@ input{
     font-weight: 600;
     color: #fff;
 }
-.navbar-collapse, .navbar-expand-lg{
+.header-navbar-collapse, .navbar-expand-lg{
     background-color: #2874F0;
 }
-.navbar-collapse{
+.header-navbar-collapse{
     display: flex;
     flex-direction: column;
     width: 100%;

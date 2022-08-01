@@ -190,6 +190,18 @@
             font-size: 1.2rem !important;
         }
 
+        /*--------------- search page ------------------  */
+.search-sort-div{
+    width: 100%;
+    border: none !important;
+}
+.sort-category{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
 }
 
 
@@ -351,6 +363,16 @@ div#viewpage-img{
     margin-left: 1rem !important;
 }
 
+/*--------------- search page ------------------  */
+.search-sort-div{
+    width: 100%;
+    border: none !important;
+}
+.sort-category{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 }
 
@@ -467,7 +489,16 @@ div#viewpage-img{
 .wish-data{
     margin-left: 1rem !important;
 }
-
+/* ------------ search page ------------ */
+.search-sort-div{
+    width: 100%;
+    border: none !important;
+}
+.sort-category{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 }
 
 /* -------------------- Media query (min-width: 993px) and (max-width: 1200px) ---------------  */

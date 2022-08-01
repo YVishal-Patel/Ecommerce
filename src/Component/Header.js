@@ -1,26 +1,52 @@
 import React, {useState} from 'react'
+import newArr from './Data'
 import './SignUp/SignUp.css'
 import './Responsive.css'
 import { Link } from 'react-router-dom'
 
-function Header({cartL}) {
-  const searchData = ()=>{
+function Header({cartL,setfilterstate,filterState}) {
 
+
+const [ArrayData , setArrayDatas] = useState(newArr)
+const [filterData, setFilterDatas] = useState(newArr)
+const [ state, setState] = useState("")
+
+// console.log(ArrayData)
+
+
+const handleState = (e) =>{
+  // let data = e.target.value
+  // setState(data)
+// }
+// const filterFunc = (e) =>{
+  // let  = state
+  // console.log(StateData)
+  if(e.target.value == ''){
+    setArrayDatas(filterData)
+  }else{
+    const filterValue = filterData.filter((item)=> item.ProductName.toLowerCase().includes(e.target.value.toLowerCase()) )
+    setArrayDatas(filterValue)
+    setfilterstate(ArrayData)
   }
+  setState(e.target.value)
+}
+
+
+
 
   return (
-      <>
+    <>
       <nav class="navbar navbar-expand-lg main-div">
   <div class="container-fluid">
     <Link class="  small-logo" to="/">Brain Inventory</Link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+    <div class="collapse navbar-collapse  header-navbar-collapse" id="navbarSupportedContent">
       <div className="row w-100 top-header">
         <div className="col-3 top-header-div">
-          <input class=" w-75" type="text" placeholder='search' />
-          <i onClick={searchData} class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input class=" w-75" type="text" placeholder='search' value={state} onChange={e => handleState(e)} />
+          <Link  to="/search"> <i  class="fa-solid fa-magnifying-glass search-icon"></i></Link>
         </div>
         <div className="col-7 d-flex justify-content-center">
           <div className="logo-div">
@@ -79,8 +105,8 @@ function Header({cartL}) {
     <div class="collapse navbar-collapse  " id="navbarSupportedContent">
       <div className="row w-100 top-header">
         <div className="col-10 top-header-div">
-          <input class=" w-100 search-field" type="text" placeholder='search' />
-          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input class=" w-100 search-field" type="text" placeholder='search'  value={state} onChange={e => handleState(e)} />
+          <Link  to="/search"> <i  class="fa-solid fa-magnifying-glass search-icon"></i></Link>
         </div>
         {/* <div className="col-1"></div> */}
         <div className="col-2 icons-header-div d-flex justify-content-center">

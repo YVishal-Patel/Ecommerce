@@ -5,13 +5,18 @@ import { BrowserRouter,Navigate, useNavigate } from 'react-router-dom'
 import ROute from './Component/ROute'
 import CalculateValue from './Component/CalculateValue'
 import Swal from 'sweetalert2'
-
+import newArr from './Component/Data'
 
 
 
 function App() {
   const [cart, setCart] = useState([])
 const [wishlist, Setwishlist] = useState([])
+
+const[filterState, setfilterstate] = useState([])
+
+
+console.log(filterState)
 
 
 const handleWishlist = (item) => {
@@ -38,14 +43,13 @@ const handleCart = (item) => {
     timer: 1500
   })
 };
-// console.log(cart)
 
 
   return (
     <>
     
     <BrowserRouter>
-     <ROute cart={cart} setCart={setCart} wishlist={wishlist} handleCart={handleCart} handleWishlist={handleWishlist} Setwishlist={Setwishlist} cartL ={cart.length} />
+     <ROute cart={cart} setCart={setCart} wishlist={wishlist} handleCart={handleCart} handleWishlist={handleWishlist} Setwishlist={Setwishlist} cartL ={cart.length} setfilterstate={setfilterstate} filterState={filterState} name={"raghav"} />
     </BrowserRouter>  
     </>
   )

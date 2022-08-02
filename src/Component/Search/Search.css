@@ -89,4 +89,24 @@ text-decoration-color:#2874F0 ;
       width: 20px !important;
       height: 20px !important;
   }
- 
+  .list{
+    list-style: none;
+    border: none !important;
+    outline: none;
+    margin: 0 0.3rem;
+  }
+ .handleCartButton{
+   width: 50px;
+   height: 50px;
+   background-color: transparent;
+   outline: none;
+   border: none;
+ }
+ .search-row{
+   margin: 0 0.1rem;
+ }
+ @media only screen and (min-width: 769px)  and (max-width: 992px){
+  .list{
+    margin: 0 -0.6rem !important;
+  }
+ }

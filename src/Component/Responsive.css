@@ -36,10 +36,10 @@
         top: 4.4rem;
         cursor: pointer;
     }
-    .badgeData{
+    .badgeData {
         position: absolute;
-        right: 1rem;
-        top: 3.6rem;
+        right: 0.3rem;
+        top: 0.5rem;
         color: white;
         background-color: red;
     }
@@ -200,8 +200,16 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-
-
+.navbar-toggler{
+    font-size: 16px !important;
+}
+.logos{
+    display: flex;
+    justify-content: center;
+}
+.heart-small{
+    margin-left: -1.3rem !important;
+}
 }
 
 
@@ -241,13 +249,13 @@
     .search-icon{
         position: absolute;
         left: 74%;
-        top: 5rem;
+        top: 4.6rem;
         cursor: pointer;
     }
-    .badgeData{
+    .badgeData {
         position: absolute;
-        right: 1.5rem;
-        top: 4.1rem;
+        right: 0.2rem;
+        top: 0.5rem;
         color: white;
         background-color: red;
     }
@@ -373,7 +381,19 @@ div#viewpage-img{
     flex-wrap: wrap;
     justify-content: center;
 }
-
+.small-logo{
+    font-size: 20px;
+    /* margin-left: -1.6rem; */
+}
+.small-logo:hover{
+    color: #fff;
+}
+.small-logo:active{
+    color: #fff;
+}
+.navbar-toggler{
+    font-size: 20px !important;
+}
 }
 
 
@@ -402,17 +422,17 @@ div#viewpage-img{
 .search-icon{
     position: absolute;
     left: 76%;
-    top: 5.4rem;
+    top: 5rem;
     cursor: pointer;
 }
 .user-icon{
     /* width: 25px !important; */
     display: none;
 }
-.badgeData{
+.badgeData {
     position: absolute;
-    right: 3.6rem;
-    top: 4.4rem;
+    right: 0.2rem;
+    top: 0.5rem;
     color: white;
     background-color: red;
 }
@@ -432,6 +452,15 @@ div#viewpage-img{
     display: none;
 }
 
+.container-header-data, .small-scr-data{
+    display: flex;
+    justify-content: center !important;
+    flex-direction: row !important;
+    margin: 0 -1rem;
+}
+list{
+    margin: 0 -0.6rem !important;
+}
 /* ------------- View Page  --------------- */
 .wishlist-btn1{
     padding: 0.6rem 1rem;
@@ -499,6 +528,11 @@ div#viewpage-img{
     flex-wrap: wrap;
     justify-content: center;
 }
+.small-logo{
+    font-size: 24px;
+}
+
+
 }
 
 /* -------------------- Media query (min-width: 993px) and (max-width: 1200px) ---------------  */

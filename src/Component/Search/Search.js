@@ -2,7 +2,7 @@ import React from 'react'
 import './Search.css'
 import { Link, useParams } from 'react-router-dom'
 
-function Search({filterState,setfilterstate}) {
+function Search({filterState,setfilterstate, value}) {
   console.log(filterState)
 
   let {id}=  useParams
@@ -24,14 +24,19 @@ function Search({filterState,setfilterstate}) {
  setfilterstate(filterBrand)
   }
 
+  let newCLass = {
+    backgroundColor:'black',
+    color:"white"
+  }
+  // let dynamicClass = value? :console.log("not found")
   return (
     <>
     <div className="container-fluid">
       <div className="filterPage">
-        <div className="row">
+        <div className="row search-row">
         <div className="col-3 search-sort-div  ">
           <div className="heading-search d-flex justify-content-between">
-          Sorted by Price
+            Sorted by Price
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
           <i class="fa-solid fa-arrow-down-short-wide   bars-search"></i>
           </button>

@@ -465,3 +465,10 @@ margin-top: -0.3rem;
     color: rgb(143, 139, 139);
     text-align: center;
 }
+.small-scr-data{
+    margin-left: -1rem;
+}
+.main-header-wish-logo{
+    font-size: 19px;
+    color: #fff;
+}

@@ -12,6 +12,7 @@ function ViewPage({handleCart,  handleWishlist}) {
     let newData =  newArr.filter((val)=> val.id === parseInt(id))
 
     const [price , setPrice] = useState(newData)
+    
       
   
   return (
@@ -42,7 +43,7 @@ function ViewPage({handleCart,  handleWishlist}) {
                </div>
                <div className="description-type">
                    <p className="description-type1"> Description</p>
-                   <span className="description-type2">Lorem ipsum dolor sit amet consectetur adipisicing elit. A atque cupiditate veniam quisquam iste iure inventore, explicabo consectetur nostrum sit vitae error ducimus fuga, deserunt quis nam neque aliquid officiis ullam harum autem. Iure sunt unde possimus rem dicta neque Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae numquam veniam obcaecati delectus eaque, modi quae quas quo ut in quisquam fuga fugiat officia neque assumenda. Inventore saepe illo ad.</span>
+                   <span className="description-type2"> Lorem ipsum dolor sit amet consectetur adipisicing elit. A atque cupiditate veniam quisquam iste iure inventore, explicabo consectetur nostrum sit vitae error ducimus fuga, deserunt quis nam neque aliquid officiis ullam harum autem. Iure sunt unde possimus rem dicta neque Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae numquam veniam obcaecati delectus eaque, modi quae quas quo ut in quisquam fuga fugiat officia neque assumenda. Inventore saepe illo ad.</span>
                </div>
                </div>
            </div>

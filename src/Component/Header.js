@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import newArr from './Data'
 import './SignUp/SignUp.css'
+import axios from 'axios'
 import './Responsive.css'
-import { Link,Navigate, Route, useNavigate } from 'react-router-dom'
+import { Link,Navigate, NavLink, Route, useNavigate } from 'react-router-dom'
 
 let handleData = [
   {
@@ -55,13 +56,26 @@ let handleData = [
 
 function Header({cartL,setfilterstate,filterState}) {
 
-const [ArrayData , setArrayDatas] = useState(newArr)
-const [filterData, setFilterDatas] = useState(newArr)
+const [ArrayData , setArrayDatas] = useState()
+
+const [filterData, setFilterDatas] = useState()
+console.log(filterData, "filter data")
 const[route, setRoute]=  useState(handleData)
 const [ state, setState] = useState()
 
 const navigate = useNavigate()
 
+useEffect(()=>{
+  fetchData()
+},[])
+
+const fetchData = async () =>{
+ await(axios.get("http://localhost:8000/posts"))
+ .then((res)=>{
+  setArrayDatas(res.data)
+  setFilterDatas(res.data)
+})
+}
 
 const handleState = (e) =>{
   // let data = e.target.value
@@ -73,7 +87,7 @@ const handleState = (e) =>{
   if(e.target.value == ''){
     setArrayDatas(filterData)
   }else{
-    const filterValue = filterData.filter((item)=> item.ProductName.toLowerCase().includes(e.target.value.toLowerCase()) )
+    const filterValue = filterData.filter((item)=> item.productName.toLowerCase().includes(e.target.value.toLowerCase()) )
     setArrayDatas(filterValue)
     setfilterstate(ArrayData)
   }
@@ -86,6 +100,12 @@ const handleRoute = (nav)=>{
   navigate(`/${nav}`);
 }
 
+const handleRouteStyle = ({isActive})=>{
+ return{
+   color:isActive?'red':"white",
+   fontWeight:isActive?'bolder':'normal'
+ }
+}
 
   return (
     <>
@@ -130,7 +150,7 @@ const handleRoute = (nav)=>{
       </div>
         <ul className="d-flex justify-content-center my-2">
          {route.map((item)=>{
-           return <li onClick={()=>handleRoute(item.navroute)}  className=' list'><Link className=' header-data ' to='/'><span className=""> {item.navHome} </span></Link></li> 
+           return <li onClick={()=>handleRoute(item.navroute)}  className=' list'><NavLink onClick={handleRouteStyle}  className=' header-data ' to='/'><span className=""> {item.navHome} </span></NavLink></li> 
         })}
         </ul>
     </div>

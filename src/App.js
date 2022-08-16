@@ -6,6 +6,8 @@ import ROute from './Component/ROute'
 import CalculateValue from './Component/CalculateValue'
 import Swal from 'sweetalert2'
 import newArr from './Component/Data'
+import ApiIntergrate from './Component/ApiIntergrate'
+import Check from './Check'
 
 
 
@@ -16,7 +18,7 @@ const [wishlist, Setwishlist] = useState([])
 const[filterState, setfilterstate] = useState([])
 
 
-console.log(filterState)
+console.log(filterState, "filtered state")
 
 
 const handleWishlist = (item) => {
@@ -51,6 +53,8 @@ const handleCart = (item) => {
     <BrowserRouter>
      <ROute cart={cart} setCart={setCart} wishlist={wishlist} handleCart={handleCart} handleWishlist={handleWishlist} Setwishlist={Setwishlist} cartL ={cart.length} setfilterstate={setfilterstate} filterState={filterState} name={"raghav"} />
     </BrowserRouter>  
+    {/* <ApiIntergrate /> */}
+    {/* <Check /> */}
     </>
   )
 }

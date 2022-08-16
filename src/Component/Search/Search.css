@@ -105,6 +105,15 @@ text-decoration-color:#2874F0 ;
  .search-row{
    margin: 0 0.1rem;
  }
+
+ .card-brands{
+ font-size: 14px;
+    position: absolute;
+    right: 2rem;
+    margin-top: -1.9rem;
+    /* top: 1rem; */
+    font-weight: 500;
+  }
  @media only screen and (min-width: 769px)  and (max-width: 992px){
   .list{
     margin: 0 -0.6rem !important;

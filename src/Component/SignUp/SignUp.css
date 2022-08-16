@@ -472,3 +472,13 @@ margin-top: -0.3rem;
     font-size: 19px;
     color: #fff;
 }
+.loading-spinner{
+    position:absolute;
+    top: 80%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+}
+.spinner-sizing{
+    font-size: 50px;   
+}

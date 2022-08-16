@@ -2,14 +2,18 @@ import React from 'react'
 import './Wishlist.css'
 import { Link, useParams } from 'react-router-dom'
 import '../Responsive.css'
+import axios from 'axios'
 
 function Wishlist({ wishlist,Setwishlist}) {
+    console.log(wishlist)
 
     let {id} = useParams()
+    console.log(id)
 
-    const removeItem = (id)=>{
+    const removeItem = async (id)=>{
         let data = [...wishlist]
-        data.splice(id,1)
+         let remData = await axios.get(`http://localhost:8000/posts/${id}`)
+        data.splice(remData,1)
         Setwishlist(data)
     }
 
@@ -37,11 +41,11 @@ function Wishlist({ wishlist,Setwishlist}) {
               return   <div key={id} className="main-wish-container">
                   <div className="row main-wish-container-row">
                       <div className="col-2   wish-images">
-                      <img src={item.ProductImg} alt=" not found" className='wishlist-img' width='120px' height="120px" />
+                      <img src={item.productImg} alt=" not found" className='wishlist-img' width='120px' height="120px" />
                       </div>
                       <div className="col-8  wish-data">
                           <Link to={`/viewpage/${item.id}`}>
-                       <span className="wishlist-data">{item.ProductName}</span>
+                       <span className="wishlist-data">{item.productName}</span>
                        </Link>
                        
                        <br />
@@ -54,12 +58,12 @@ function Wishlist({ wishlist,Setwishlist}) {
                 <span className='rating-value-wish' > 4.7</span>
                        </span>
                        <br />
-                       <span className="wish-description">{item.ProductDescription}</span>
+                       <span className="wish-description">{item.productDescription}</span>
                        <br />
-                       <div className="wish-price">{"₹ " + item.ProductPrice}</div>
+                       <div className="wish-price">{"₹ " + item.productPrice}</div>
                       </div>
                       <div className="col-2  wish-operation">
-                      <i onClick={removeItem} class="fa-solid fa-trash"></i>
+                      <i onClick={()=>removeItem(item.id)} class="fa-solid fa-trash"></i>
                       {/* <button onClick={handleCartData} className='btn-to-cart'>Add to Cart</button> */}
                       </div>
                   </div>

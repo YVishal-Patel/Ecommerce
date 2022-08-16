@@ -15,6 +15,9 @@ import Accessories from './Accessories'
 import Toys from './Toys'
 import Clothing from './Clothing'
 import Watches from './Watches'
+import NoMatch from './NoMatch'
+import Electronics from './Electronics'
+import Dresses from './Dresses'
 
 
 
@@ -34,13 +37,17 @@ function ROute({cart, setCart, handleCart, handleWishlist,cartL, Setwishlist, wi
           <Route  path="/wishlist" element={<Wishlist Setwishlist={Setwishlist} handleWishlist={handleWishlist} wishlist={wishlist} Card cart={cart} setCart={setCart}/>} />
           <Route  path="/search" element={<Search filterState={filterState} setfilterstate={setfilterstate} value={true} />}   />
           <Route path='/sale' element={<Sale />} />
-          <Route path='/shoes' element={<Shoes />} />
+          <Route path='/shoes:data' element={<Shoes />} />
           <Route path='/sale' element={<Sale />} />
           <Route path='/wathces' element={<Watches />} />
           <Route path='/clothing' element={<Clothing />} />
           <Route path="/Beauty" element={<Beauty />} />
-          <Route path="/acccessories" element={<Accessories />} />
+          <Route path="/accessories" element={<Accessories />} />
           <Route path="/toys" element={<Toys />} />
+          <Route path="/shoes" element={<Shoes />} />
+          <Route path="/electronics" element={<Electronics />} />
+          <Route path="/dresses" element={<Dresses />} />
+          {/* <Route path='*' element={<NoMatch />}  /> */}
 
       </Routes>
 

@@ -9,6 +9,7 @@ import Paytm from './paytm.png'
 import './Responsive.css'
 
 function Card({cart, setCart}) {
+  console.log(cart)
 
   const [ price, setPrice] = useState()
   const [ totalPrice, setTotalPrice] = useState()
@@ -21,7 +22,7 @@ function Card({cart, setCart}) {
 
 const handlePrice = () =>{
   let ProductPrice = 0
-  cart.map((item)=>(ProductPrice += item.quantity * item.ProductPrice))
+  cart.map((item)=>(ProductPrice += item.quantity * item.productPrice))
   setPrice(ProductPrice)
 }
 
@@ -57,13 +58,13 @@ const handlePrice = () =>{
       return <div key={id} className="row  mt-3 mb-3">
               <div className="col-2">
                 <div className="table-img ">
-                  <img src={item.ProductImg} className="table-img-data" width="110px"  height='110px' alt="not found" />
+                  <img src={item.productImg} className="table-img-data" width="110px"  height='110px' alt="not found" />
                 </div>
               </div>
               <div className="col-6">
                 <div className="item-name">
-                  <span  className='item-ProductName '>{item.ProductName}</span>
-                  <div className="item-description">{item.ProductDescription}</div>
+                  <span  className='item-ProductName '>{item.productName}</span>
+                  <div className="item-description">{item.productDescription}</div>
                 </div>
               </div>
               <div className="quantity-card col-2">
@@ -74,7 +75,7 @@ const handlePrice = () =>{
                 </div>
               </div>
               <div className="col-2 item-price">
-                <div className="item-ProductPrice">{item.ProductPrice}</div>
+                <div className="item-ProductPrice">{item.productPrice}</div>
               </div>
             </div>
             })}

@@ -1,34 +1,46 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import './Search.css'
 import { Link, useParams } from 'react-router-dom'
+import newArr from '../Data'
+import axios from 'axios'
 
 function Search({filterState,setfilterstate, value}) {
+  const [state, setState] = useState([])
+  // console.log(state)
   console.log(filterState)
 
   let {id}=  useParams
   console.log(filterState)
 
+  const fetchData = async () =>{
+  await axios.get('http://localhost:8000/posts')
+  .then((res)=> setState(res.data))
+  }
+  useEffect(()=>{
+    fetchData()
+  }, [])
+
   const sortedByPriceAscending = () => {
-  let name = [...filterState].sort((a,b)=>a.ProductPrice - b.ProductPrice)
+  let name = [...filterState].sort((a,b)=>a.productPrice - b.productPrice)
   console.log(name)
    setfilterstate(name)
   }
 
   const sortedByPriceDecending = () =>{
-  let name = [...filterState].sort((a,b)=>a.ProductPrice - b.ProductPrice).reverse()
+  let name = [...filterState].sort((a,b)=>a.productPrice - b.productPrice).reverse()
   setfilterstate(name)
   }
 
-  const filerByBrands = (data)=>{
- let filterBrand = filterState.filter((item)=> item.brands == data )
- setfilterstate(filterBrand)
+  const handleClick = (handleValue) =>{
+    const valUe =  state.filter((item)=>{ return item.brands == handleValue})
+    setfilterstate(valUe)
+    console.log(valUe)
   }
 
   let newCLass = {
     backgroundColor:'black',
     color:"white"
   }
-  // let dynamicClass = value? :console.log("not found")
   return (
     <>
     <div className="container-fluid">
@@ -50,42 +62,13 @@ function Search({filterState,setfilterstate, value}) {
                <div className="heading-search catefory-search ">
                 Categories:
           </div>
-              <div className="sort-category">
-              <label class="container-searchData">Calvin Klein
-  <input type="checkbox" />
-  <span  class="checkmark"></span>
-</label>
-
-<label class="container-searchData">Roadster
-  <input type="checkbox"  />
-  <span  class="checkmark"></span>
-</label>
-
-<label class="container-searchData">Everlane
-  <input type="checkbox" />
-  <span onCLick={filerByBrands} class="checkmark"></span>
-</label>
-
-<label class="container-searchData">Carhartt
-  <input type="checkbox"/>
-  <span onCLick={filerByBrands} class="checkmark"></span>
-</label>
-
-<label class="container-searchData">Brooklinen
-  <input type="checkbox" />
-  <span onCLick={filerByBrands} class="checkmark"></span>
-</label>
-
-<label class="container-searchData">Uniqlo
-  <input type="checkbox" />
-  <span onCLick={filerByBrands} class="checkmark"></span>
-</label>
-
-<label class="container-searchData">Velva
-  <input type="checkbox"/>
-  <span onCLick={filerByBrands} class="checkmark"></span>
-</label>
-              </div>
+<p className='container-searchData' onClick={()=>handleClick('Calvin Klein')}>Calvin Klein</p>
+              <p className='container-searchData'  onClick={()=>handleClick('Roadster')}>Roadster</p>
+              <p className='container-searchData' onClick={()=>handleClick('Everlane')}>Everlane</p>
+              <p className='container-searchData' onClick={()=>handleClick('Carhartt')}>Carhartt</p>
+              <p className='container-searchData' onClick={()=>handleClick('Brooklinen')}>Brooklinen</p>
+              <p className='container-searchData' onClick={()=>handleClick('Uniqlo')}>Uniqlo</p>
+              <p className='container-searchData' onClick={()=>handleClick('Velva')}>Velva</p>
             </div>
           </div>
         </div>
@@ -98,14 +81,14 @@ function Search({filterState,setfilterstate, value}) {
                         <div class="card  " >
 
                             <div className="img d-flex justify-content-center w-100">
-            <img src={item.ProductImg} class="card-img-top img-fluid"  alt="not found"/>
+            <img src={item.productImg} class="card-img-top img-fluid"  alt="not found"/>
             </div>
             <div class="card-body">
             <div className="heading-body">
-                <h5 class="card-title">{item.ProductName} </h5>
+                <h5 class="card-title">{item.productName} </h5>
                 </div>
                 <div className="rating d-flex justify-content-between">
-                <h5 class="card-price">{"₹ " + item.ProductPrice} </h5>
+                <h5 class="card-price">{"₹ " + item.productPrice} </h5>
                     
                 <div className="rate" style={{marginTop:"-0.5rem" }}>
                 <i class="fa-solid fa-star"></i>
@@ -116,7 +99,8 @@ function Search({filterState,setfilterstate, value}) {
                 <span className='rating-value' > 4.7</span>
                 </div>
                 </div>
-                <p class="card-text">{item.ProductDescription}</p>
+                <p class="card-text">{item.productDescription}</p>
+                <span className="card-brands">{item.brands}</span>
                 <Link to={`/viewpage/${id}`} class="btn btn-primary main-btn">View Product</Link>
             </div>
             </div>

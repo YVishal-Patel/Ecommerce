@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import newArr from './Data'
 import { useParams } from 'react-router-dom'
 import './SignUp/SignUp.css'
@@ -8,26 +8,42 @@ import './Responsive.css'
 function ViewPage({handleCart,  handleWishlist}) {
 
     let {id} = useParams()
+    const[totalData, setTotalData] = useState([])
     
-    let newData =  newArr.filter((val)=> val.id === parseInt(id))
-
+    let newData =  totalData.filter((val)=> val.id === parseInt(id))
+    console.log(newData, "filtered value")
+    
+    
     const [price , setPrice] = useState(newData)
-    
-      
+    console.log(price, "newData")
+
+    let data =  newData.map(item => console.log(item, "Product Name"))
+
+
+    const fetchData = () =>{
+        fetch(`http://localhost:8000/posts/${id}`)
+        .then(res => res.json())
+        .then(res => {
+         setPrice(res)
+        } )
+    }
+      useEffect(()=>{
+        fetchData()
+      }, [])
   
   return (
       <>    
-      {price.map((item)=>{
-     return   <div key={item.id} className="container-fluid main-div-view ">
+      {/* {newData.map((item)=>{ */}
+       <div  className="container-fluid main-div-view ">
       <div className="container">
  <div className="row mt-4">
            <div id="viewpage-data" className="col-md-6 col-sm-12 ">
                       <div className="data-type">
                <div className="name-type">
-                   <span className="name-type1"> {item.ProductName} </span>
+                   <span className="name-type1"> {price.roductName} </span>
                </div>
                <div className="price">
-                   <span className="price1"> {item.ProductPrice} </span>
+                   <span className="price1"> {price.productPrice} </span>
                </div>
                <div className="size-type">
                    <div className="size">
@@ -50,14 +66,14 @@ function ViewPage({handleCart,  handleWishlist}) {
               <div className="col-1 data"></div>
              <div id="viewpage-img" className="col-12 col-md-5 col-sm-12  view-types-data">
            <div className=" img-type">
-               <img src={item.ProductImg} alt="not found" width='100%' height='430px' />
+               <img src={price.productImg} alt="not found" width='100%' height='430px' />
            </div>   
            <div className="btns d-flex justify-content-between">
            <div className="wishlist-btn">
-                   <button onClick={()=>handleWishlist(item)} className="wishlist-btn1">Add to Wishlist <i class="fa-solid fa-right-long arrow1"></i></button>
+                   <button onClick={()=>handleWishlist(price)} className="wishlist-btn1">Add to Wishlist <i class="fa-solid fa-right-long arrow1"></i></button>
                </div>
                <div className="wishlist-btn">
-                   <button onClick={()=>handleCart(item)} className="wishlist-btn1">Add to Cart <i class="fa-solid fa-right-long arrow1"></i></button>
+                   <button onClick={()=>handleCart(price)} className="wishlist-btn1">Add to Cart <i class="fa-solid fa-right-long arrow1"></i></button>
                </div>
                </div>
                </div>
@@ -65,7 +81,7 @@ function ViewPage({handleCart,  handleWishlist}) {
        
       </div>
       </div>  
-      })}
+      {/* })} */}
 
 
 {/* --------------------------------- small screen ------------------------------------------- */}

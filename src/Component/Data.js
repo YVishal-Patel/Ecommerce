@@ -1,101 +1,101 @@
-import img from './img11.webp'
-import img2 from './img10.webp'
-import img3 from './img13.webp'
-import img4 from './img14.webp'
+// import img from './img11.webp'
+// import img2 from './img10.webp'
+// import img3 from './img13.webp'
+// import img4 from './img14.webp'
 
 
 
-let newArr = [
+// let newArr = [
 
-    { id:0,
-        ProductName:"Women Kurta and Palazzo",
-        ProductPrice: 999, 
-        ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
-        ProductImg:img,
-        brands:"Calvin Klein",
-        quantity:1},
+//     { id:0,
+//         ProductName:"Women Kurta and Palazzo",
+//         ProductPrice: 999, 
+//         ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
+//         ProductImg:img,
+//         brands:"Calvin Klein",
+//         quantity:1},
 
-    {id:1,
-         ProductName:"Men Slim Fit   Shirt",
-          ProductPrice: 999
-          , ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.", 
-          quantity:1 ,
-          ProductImg:img4,
-          brands:"Roadster",
-         },
+//     {id:1,
+//          ProductName:"Men Slim Fit   Shirt",
+//           ProductPrice: 999
+//           , ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.", 
+//           quantity:1 ,
+//           ProductImg:img4,
+//           brands:"Roadster",
+//          },
 
-    {id:2,
-         ProductName:"Men Regular Casual Shirt",
-         ProductPrice: 599, ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
-         quantity:1,
-         brands:"Everlane",
-         ProductImg:img2},
+//     {id:2,
+//          ProductName:"Men Regular Casual Shirt",
+//          ProductPrice: 599, ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
+//          quantity:1,
+//          brands:"Everlane",
+//          ProductImg:img2},
 
-    {id:3,
-         ProductName:"Men Slim Fit  Casual Shirt",
-         ProductPrice: 499,
-         ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content." ,
-         quantity:1,
-         brands:"Carhartt",
-         ProductImg:img4},
+//     {id:3,
+//          ProductName:"Men Slim Fit  Casual Shirt",
+//          ProductPrice: 499,
+//          ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content." ,
+//          quantity:1,
+//          brands:"Carhartt",
+//          ProductImg:img4},
 
-    {id:4,
-         ProductName:"Men  Checkered  Shirt",
-         ProductPrice: 699,
-         ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
-         quantity:1,
-         brands:"Brooklinen",
-        ProductImg:img2},
+//     {id:4,
+//          ProductName:"Men  Checkered  Shirt",
+//          ProductPrice: 699,
+//          ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
+//          quantity:1,
+//          brands:"Brooklinen",
+//         ProductImg:img2},
 
-    {id:5,
-        ProductName:"Men Slim Fit   Shirt",
-        ProductPrice: 799,
-        ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
-        quantity:1,
-        brands:"Uniqlo",
-        ProductImg:img3},
+//     {id:5,
+//         ProductName:"Men Slim Fit   Shirt",
+//         ProductPrice: 799,
+//         ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
+//         quantity:1,
+//         brands:"Uniqlo",
+//         ProductImg:img3},
 
-    {id:6,
-        ProductName:"Women Kurta and Palazzo",
-        ProductPrice: 299, ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
-        quantity:1,
-        brands:"Velva",
-        ProductImg:img},
+//     {id:6,
+//         ProductName:"Women Kurta and Palazzo",
+//         ProductPrice: 299, ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
+//         quantity:1,
+//         brands:"Velva",
+//         ProductImg:img},
 
-    {id:7,
-        ProductName:"Women Kurta and Palazzo",
-        ProductPrice: 299,
-        ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
-        quantity:1,
-        brands:"Velva",
-        ProductImg:img4},
+//     {id:7,
+//         ProductName:"Women Kurta and Palazzo",
+//         ProductPrice: 299,
+//         ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
+//         quantity:1,
+//         brands:"Velva",
+//         ProductImg:img4},
 
-    {id:8,
-    ProductName:"Women Kurta and Palazzo",
-    ProductPrice: 299,
-    ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.", 
-    quantity:1,
-    brands:"Uniqlo", 
-    ProductImg:img},
+//     {id:8,
+//     ProductName:"Women Kurta and Palazzo",
+//     ProductPrice: 299,
+//     ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.", 
+//     quantity:1,
+//     brands:"Uniqlo", 
+//     ProductImg:img},
 
-    {id:9,
-    ProductName:"Women Kurta and Palazzo", 
-    ProductPrice: 299, 
-    ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content." , 
-    quantity:1,
-    brands:"Roadster",
-    ProductImg:img4},
+//     {id:9,
+//     ProductName:"Women Kurta and Palazzo", 
+//     ProductPrice: 299, 
+//     ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content." , 
+//     quantity:1,
+//     brands:"Roadster",
+//     ProductImg:img4},
 
-    {id:10,
-    ProductName:"Women Kurta and Palazzo",
-    ProductPrice: 299,
-    ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
-    quantity:1 ,
-    brands:"Calvin Klein",
-    ProductImg:img}]
-
-
+//     {id:10,
+//     ProductName:"Women Kurta and Palazzo",
+//     ProductPrice: 299,
+//     ProductDescription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
+//     quantity:1 ,
+//     brands:"Calvin Klein",
+//     ProductImg:img}]
 
 
 
-export default newArr;
+
+
+// export default newArr;

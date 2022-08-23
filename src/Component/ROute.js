@@ -23,18 +23,18 @@ import Dresses from './Dresses'
 
 
 
-function ROute({cart, setCart, handleCart, handleWishlist,cartL, Setwishlist, wishlist, handleState,filterFunc,setfilterstate,filterState }) {
+function ROute({ handleCart, handleWishlist,  handleState,filterFunc,setfilterstate,filterState }) {
   
   return (
       <>
-      <Header cartL={cartL} handleState={handleState} filterFunc={filterFunc} setfilterstate={setfilterstate} filterState={filterState} />
+      <Header  handleState={handleState} filterFunc={filterFunc} setfilterstate={setfilterstate} filterState={filterState} />
       <Routes>
-          <Route path='/' element={<Home />}/>
+          <Route path='/home' element={<Home />}/>
           <Route path='/viewpage/:id' element={<ViewPage handleCart={handleCart}  handleWishlist={handleWishlist} filterState={filterState} />}/>
           <Route path='/sign-up' element={<SignUp />} />
           <Route path="/edit/:id"  element={<Edit/>} />
-          <Route path="/cart"  element={<Card cart={cart} setCart={setCart} handleCart={handleCart}  handleWishlist={handleWishlist} />} />
-          <Route  path="/wishlist" element={<Wishlist Setwishlist={Setwishlist} handleWishlist={handleWishlist} wishlist={wishlist} Card cart={cart} setCart={setCart}/>} />
+          <Route path="/cart"  element={<Card  handleCart={handleCart}  handleWishlist={handleWishlist} />} />
+          <Route  path="/wishlist" element={<Wishlist  handleWishlist={handleWishlist}  Card />} />
           <Route  path="/search" element={<Search filterState={filterState} setfilterstate={setfilterstate} value={true} />}   />
           <Route path='/sale' element={<Sale />} />
           <Route path='/shoes:data' element={<Shoes />} />
@@ -47,7 +47,7 @@ function ROute({cart, setCart, handleCart, handleWishlist,cartL, Setwishlist, wi
           <Route path="/shoes" element={<Shoes />} />
           <Route path="/electronics" element={<Electronics />} />
           <Route path="/dresses" element={<Dresses />} />
-          {/* <Route path='*' element={<NoMatch />}  /> */}
+          <Route path='*' element={<NoMatch />}  />
 
       </Routes>
 

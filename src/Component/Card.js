@@ -1,45 +1,56 @@
 import React, {useState, useEffect} from 'react'
 import './Card.css'
-import newArr from './Data'
 import visa from './visa.png'
 import paypal from './paypal.png'
 import mastercard from './mastercard.png'
 import Rupay from './Rupay.png'
 import Paytm from './paytm.png'
 import './Responsive.css'
+import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectedCartItems, selectedCartPrice, totalPrice } from '../Redux/Actions/Actions'
 
-function Card({cart, setCart}) {
-  console.log(cart)
+function Card() {
 
-  const [ price, setPrice] = useState()
-  const [ totalPrice, setTotalPrice] = useState()
+  const cartData = useSelector(state => state.cartItems.productData)
+  const isLoading = useSelector(state => state.cartItems)
+  const TotalPrice = useSelector(state => state.totalPrice.productPrice)
+  const discountedPrice = useSelector(state => state.totalPrice.discountPrice)
 
+  const dispatch = useDispatch()
 
-  useEffect(()=>{
-    handlePrice()
-    totalValue()
-  })
+  const navigate = useNavigate()
 
-const handlePrice = () =>{
+  const handlePrice = () =>{
   let ProductPrice = 0
-  cart.map((item)=>(ProductPrice += item.quantity * item.productPrice))
-  setPrice(ProductPrice)
+  cartData.map((item)=>(ProductPrice += item.quantity * item.productPrice))
+  dispatch({type:selectedCartPrice, payload:ProductPrice})
 }
 
   const handlePlus = (id, d)=>{
-   setCart(cart =>
-    cart.map((item)=> item.id == id ? {...item, quantity:item.quantity+d}:item)
-    )  
+  dispatch({type:selectedCartItems, payload:(
+    cartData.map((item)=> item.id == id ?{...item, quantity:item.quantity+d}:item)
+    ) })
   }
 
   const totalValue = ()=>{
-    let TotalPrice = 0;
-    TotalPrice += price - 99
-    setTotalPrice(TotalPrice)
-  }
+        let Price = 0;
+        if(TotalPrice > 0){
+        Price += TotalPrice - 99
+        console.log(TotalPrice)}
+        dispatch({type:totalPrice, payload: Price})
+      }
 
-  return (<>
-  <div className="container cart-body-main-container">
+  useEffect(()=>{
+    handlePrice();
+    totalValue();
+  })
+
+  console.log(cartData, "cartData")
+
+{if(cartData.length !== 0){
+
+return(<> <div className="container cart-body-main-container">
       <div className="card-body">
       <div className="card-heading">
           <div className="card-head">
@@ -51,44 +62,44 @@ const handlePrice = () =>{
            
            <div className="row mt-3 ">
              <div className="col-8   table-data">
-               
 
-
-      {cart.map((item, id)=>{
-      return <div key={id} className="row  mt-3 mb-3">
-              <div className="col-2">
-                <div className="table-img ">
-                  <img src={item.productImg} className="table-img-data" width="110px"  height='110px' alt="not found" />
-                </div>
-              </div>
-              <div className="col-6">
-                <div className="item-name">
-                  <span  className='item-ProductName '>{item.productName}</span>
-                  <div className="item-description">{item.productDescription}</div>
-                </div>
-              </div>
-              <div className="quantity-card col-2">
-                <div className="quantity-card">
-                <button className='btn-value' disabled={item.quantity == 9} onClick={()=>handlePlus(item.id , 1)}> + </button>
-                <input className="quantity-value"  value={item.quantity}    />
-               <button className='btn-value' disabled={item.quantity == 1} onClick={()=>handlePlus(item.id, -1)}> - </button> 
-                </div>
-              </div>
-              <div className="col-2 item-price">
-                <div className="item-ProductPrice">{item.productPrice}</div>
-              </div>
-            </div>
-            })}
-
-
+ { cartData?.map((item)=>{
+  const {productName, productPrice, productDescription, productImg, brands, quantity, id} = item
+  return <div key={id} className="row  mt-3 mb-3">
+  <div className="col-2">
+    <div className="table-img ">
+      <img src={productImg} className="table-img-data" width="110px"  height='110px' alt="not found" />
+    </div>
+  </div>
+  <div className="col-6">
+    <div className="item-name">
+      <span  className='item-ProductName '>{productName}</span>
+      <div className="item-description">{productDescription}</div>
+    </div>
+  </div>
+  <div className="quantity-card col-2">
+    <div className="quantity-card">
+    <button className='btn-value' disabled={quantity == 9} onClick={()=>handlePlus(id , 1)}> + </button>
+    <input className="quantity-value"  value={quantity}    />
+   <button className='btn-value' disabled={quantity == 1} onClick={()=>handlePlus(id, -1)}> - </button> 
+    </div>
+  </div>
+  <div className="col-2 item-price">
+    <div className="item-ProductPrice">{productPrice}</div>
+  </div>
 </div>
-             <div className="col-4  card-sidebar">
+})
+}
+</div>
+
+
+<div className="col-4  card-sidebar">
              <div className="total-value d-flex ">
                   <p className='price-heading m-3'>Price Details</p>
                 </div>
                 <div className="price-data d-flex justify-content-between m-3">
                   <span>Price</span>
-                  <span>{"₹"}{price}</span>
+                  <span>{"₹"}{TotalPrice}</span>
                 </div>
                 <div className="discount d-flex justify-content-between m-3">
                 <span>Discount</span>
@@ -100,9 +111,8 @@ const handlePrice = () =>{
                 </div>
                 <div className="total-amount d-flex justify-content-between m-3">
                   <span>Total Charge</span>
-                  <span>{"₹"}{totalPrice}</span>
+                  <span>{"₹"}{discountedPrice}</span>
                 </div>
-                {/* <span className='m-3'>Shopping, taxes and discounts calculated at checkbox.</span> */}
                 <br />
                 <button className=' w-100 checkout'>checkout <i class="fa-solid fa-right-long arrow1"></i></button>
                   <hr className='mt-4'/>
@@ -122,11 +132,12 @@ const handlePrice = () =>{
   </div>
              </div>
            </div>
-            </div>
-
-          
-  {/*------------------------ small screen -------------------------------  */}
-
+            </div> 
+         
+        
+         
+            {/*------------------------ small screen -------------------------------  */}
+ 
   <div className="container small-screen-cart-container">
       <div className="card-body">
       <div className="card-heading">
@@ -142,31 +153,32 @@ const handlePrice = () =>{
                
 
 
-      {cart.map((item, id)=>{
+      {cartData?.map((item)=>{
+        const {productName, productPrice, productDescription, productImg, brands, quantity, id} = item
       return <div key={id} className="row  mt-3 mb-3">
               <div className="col-3">
                 <div className="table-img ">
-                  <img src={item.ProductImg} className="table-img-data" width="110px"  height='110px' alt="not found" />
+                  <img src={productImg} className="table-img-data" width="110px"  height='110px' alt="not found" />
                 </div>
               </div>
               <div className="col-7">
                 <div className="item-name">
-                  <span  className='item-ProductName '>{item.ProductName}</span>
-                  <div className="item-description">{item.ProductDescription}</div>
+                  <span  className='item-ProductName '>{productName}</span>
+                  <div className="item-description">{productDescription}</div>
                 </div>
 
 
               <div className="quantity-card">
                 <div className="quantity-card">
-                <button className='btn-value' disabled={item.quantity == 9} onClick={()=>handlePlus(item.id , 1)}> + </button>
-                <input className="quantity-value"  value={item.quantity}    />
-               <button className='btn-value' disabled={item.quantity == 1} onClick={()=>handlePlus(item.id, -1)}> - </button> 
+                <button className='btn-value' disabled={quantity == 9} onClick={()=>handlePlus(id , 1)}> + </button>
+                <input className="quantity-value"  value={quantity}    />
+               <button className='btn-value' disabled={quantity == 1} onClick={()=>handlePlus(id, -1)}> - </button> 
                 </div>
               </div>
               </div>
 
               <div className="col-2 item-price">
-                <div className="item-ProductPrice">{item.ProductPrice}</div>
+                <div className="item-ProductPrice">{productPrice}</div>
               </div>
             </div>
             })}
@@ -179,7 +191,7 @@ const handlePrice = () =>{
                 </div>
                 <div className="price-data d-flex justify-content-between m-3">
                   <span>Price</span>
-                  <span>{"₹"}{price}</span>
+                  <span>{"₹"}{TotalPrice}</span>
                 </div>
                 <div className="discount d-flex justify-content-between m-3">
                 <span>Discount</span>
@@ -191,9 +203,8 @@ const handlePrice = () =>{
                 </div>
                 <div className="total-amount d-flex justify-content-between m-3">
                   <span>Total Charge</span>
-                  <span>{"₹"}{totalPrice}</span>
+                  <span>{"₹"}{discountedPrice}</span>
                 </div>
-                {/* <span className='m-3'>Shopping, taxes and discounts calculated at checkbox.</span> */}
                 <br />
                 <button className=' w-100 checkout'>checkout <i class="fa-solid fa-right-long arrow1"></i></button>
                   <hr className='mt-4'/>
@@ -213,10 +224,16 @@ const handlePrice = () =>{
   </div>
              </div>
            </div>
-            </div>
+            </div> 
+            </>)} else{
+            return(  <div className='container mt-5 d-flex justify-content-center'>
+           <span style={{color:isLoading? "blue":"black" }} className='text-center fs-4'> Cart is empty </span>
+           <br />
+           <button className='d-flex  mx-4 p-2 btn btn-secondary' onClick={()=> (navigate('/home') ) }>Back to Home</button>
+           </div>
+           )
+          }}
 
-  </>
-  )
 }
 
 export default Card

@@ -1,14 +1,22 @@
-import React, {useState}  from 'react';
+import React, {useState, useEffect}  from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+
 import "./SignUp.css"
 
 function SignUp() {
 
+  const dispatch = useDispatch()
+  const userSginData = useSelector((state)=> state.logInData?.userData)
+  console.log(userSginData)
+  
   const [country , setCountry] = useState('')
   const [ region , setRegion] = useState('')
+  const [user, setUser] = useState(null)
 
 
   const  selectCountry  =  (val) => {
@@ -19,7 +27,10 @@ function SignUp() {
     setRegion(val);
   }
 
-
+  // useEffect(() => {
+    // simulate async api call with set timeout
+    // setTimeout(() => setUser({ title: 'Mr', firstName: 'Frank', lastName: 'Murphy' }), 1000);
+// }, []);
 
   const validationSchema = Yup.object().shape({
     fullname: Yup.string().required('Fullname is required'),
@@ -58,8 +69,16 @@ function SignUp() {
     resolver: yupResolver(validationSchema)
   });
   const onSubmit = data => {
-    console.log(JSON.stringify(data, null, 2));
+    let userData = data
+    console.log(userData)
+    // reset()
+    return false;
   };
+ 
+  useEffect(()=>{
+  reset(user)
+  }, [user])
+
   return (
  <>
         <div className="container-fluid main-container">
@@ -67,6 +86,8 @@ function SignUp() {
           <div className="d-flex  justify-content-center mini-container  ">
             <div className="register-form mt-5 w-75 ">
               <p className='heading text-center'>Create an Account</p>
+
+      {!user &&
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="d-flex  form-main">
         <div className="w-50 form-group">
@@ -131,6 +152,7 @@ function SignUp() {
         <div className="w-50 mt-3 form-group">
         <label>Birthaday Month</label>
         <select className=' select-data' {...register("birthadayMonth")}>
+        <option value="January">---</option>
         <option value="January">January</option>
         <option value="February">February</option>
         <option value="March">March</option>
@@ -150,6 +172,7 @@ function SignUp() {
       <div className="w-50 mt-3 form-group">
       <label>Birthaday Date</label>
       <select className='select-data' {...register("birthadayDate")}>
+      <option value="1">---</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -218,13 +241,15 @@ function SignUp() {
           <div className='mt-3'>
              <label htmlFor="country">Country</label>
         <CountryDropdown className="select-data1"
-          value={country}
-          onChange={(val) => selectCountry(val)} />
+         country={country}
+           value={country}
+            onChange={(val) => selectCountry(val)} /> 
 
         <RegionDropdown className="mt-3 select-data1"
           country={country}
           value={region}
           onChange={(val) =>selectRegion(val)} />
+          {console.log(region)}
       </div>
 
           <div className="w-50 mt-3  form-group"> 
@@ -235,9 +260,7 @@ function SignUp() {
           }`}
            />
            <div className="invalid-feedback">{errors.postcode?.message}</div>
-           </div>
-       
-           
+           </div>  
            
       </div>
 
@@ -261,15 +284,21 @@ function SignUp() {
           <button type="submit" className="btn btn-primary">
             Register
           </button>
-          {/* <button
+          <button
             type="button"
-            onClick={reset}
+            onClick={()=>reset()}
             className="btn btn-warning float-right"
           >
             Reset
-          </button> */}
+          </button>
         </div>
       </form>
+}
+{/* {user &&
+                    <div className="text-center p-3">
+                        <span className="spinner-border spinner-border-lg align-center"></span>
+                    </div>
+                } */}
     </div>
           </div>
           </div>

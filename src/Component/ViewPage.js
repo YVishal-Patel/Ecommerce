@@ -1,49 +1,53 @@
 import React, { useEffect, useState } from 'react'
 import newArr from './Data'
 import { useParams } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectedProductItem } from '../Redux/Actions/Actions'
 import './SignUp/SignUp.css'
 import './Responsive.css'
 
 
 function ViewPage({handleCart,  handleWishlist}) {
 
+    const singleProductItem = useSelector(state =>state.singleItem)
+    console.log(singleProductItem.productData)
+    const dispatch = useDispatch()
+
     let {id} = useParams()
-    const[totalData, setTotalData] = useState([])
-    
-    let newData =  totalData.filter((val)=> val.id === parseInt(id))
-    console.log(newData, "filtered value")
-    
-    
-    const [price , setPrice] = useState(newData)
-    console.log(price, "newData")
-
-    let data =  newData.map(item => console.log(item, "Product Name"))
-
 
     const fetchData = () =>{
+        return async (dispatch)=>{
         fetch(`http://localhost:8000/posts/${id}`)
         .then(res => res.json())
         .then(res => {
-         setPrice(res)
+        dispatch({type:selectedProductItem, payload:res, isLoading:false, error:''})
         } )
+        .catch(err =>{
+            if(err){
+                document.write("their is some error while fetching the data")
+                dispatch({type:selectedProductItem, isLoading:true, error:"their is some error while fetching the data"})
+            }
+        })
+    }
     }
       useEffect(()=>{
-        fetchData()
+        dispatch(fetchData())
       }, [])
   
+        const  {productName, productPrice, productImg} = singleProductItem.productData
+      
   return (
       <>    
-      {/* {newData.map((item)=>{ */}
-       <div  className="container-fluid main-div-view ">
+         <div  className="container-fluid main-div-view ">
       <div className="container">
  <div className="row mt-4">
            <div id="viewpage-data" className="col-md-6 col-sm-12 ">
                       <div className="data-type">
                <div className="name-type">
-                   <span className="name-type1"> {price.roductName} </span>
+                   <span className="name-type1"> {productName} </span>
                </div>
                <div className="price">
-                   <span className="price1"> {price.productPrice} </span>
+                   <span className="price1"> {productPrice} </span>
                </div>
                <div className="size-type">
                    <div className="size">
@@ -66,22 +70,21 @@ function ViewPage({handleCart,  handleWishlist}) {
               <div className="col-1 data"></div>
              <div id="viewpage-img" className="col-12 col-md-5 col-sm-12  view-types-data">
            <div className=" img-type">
-               <img src={price.productImg} alt="not found" width='100%' height='430px' />
+               <img src={productImg} alt="not found" width='100%' height='430px' />
            </div>   
            <div className="btns d-flex justify-content-between">
            <div className="wishlist-btn">
-                   <button onClick={()=>handleWishlist(price)} className="wishlist-btn1">Add to Wishlist <i class="fa-solid fa-right-long arrow1"></i></button>
+                   <button onClick={()=>handleWishlist(singleProductItem.productData)} className="wishlist-btn1">Add to Wishlist <i class="fa-solid fa-right-long arrow1"></i></button>
                </div>
                <div className="wishlist-btn">
-                   <button onClick={()=>handleCart(price)} className="wishlist-btn1">Add to Cart <i class="fa-solid fa-right-long arrow1"></i></button>
+                   <button onClick={()=>handleCart(singleProductItem.productData)} className="wishlist-btn1">Add to Cart <i class="fa-solid fa-right-long arrow1"></i></button>
                </div>
                </div>
                </div>
        </div>
        
       </div>
-      </div>  
-      {/* })} */}
+      </div>    
 
 
 {/* --------------------------------- small screen ------------------------------------------- */}

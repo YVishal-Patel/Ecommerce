@@ -2,16 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-// import store from './Store/Store';
-// import { Provider } from 'react-redux';
-
-// store.subscribe(()=> console.log(store.getState()))
+import {store, persistor} from './Redux/Store/Store';
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
+  
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-  {/* <Provider store={store}> */}
+  <Provider store={store}>
+  <PersistGate loading={null} persistor={persistor}>
     <App />
-    {/* </Provider> */}
+    </PersistGate>
+    </Provider>
   </>
 );
 

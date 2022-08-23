@@ -482,3 +482,6 @@ margin-top: -0.3rem;
 .spinner-sizing{
     font-size: 50px;   
 }
+.active{
+    color: lightgrey !important;
+}   

@@ -3,17 +3,19 @@ import SignIn from './Component/Sign/SignIn'
 import SignUp from './Component/SignUp/SignUp'
 import { BrowserRouter,Navigate, useNavigate } from 'react-router-dom'
 import ROute from './Component/ROute'
-import CalculateValue from './Component/CalculateValue'
 import Swal from 'sweetalert2'
-import newArr from './Component/Data'
-import ApiIntergrate from './Component/ApiIntergrate'
-import Check from './Check'
+import { selectedCartItems, selectedWishlistItems } from './Redux/Actions/Actions'
+import { useSelector, useDispatch } from 'react-redux'
+
 
 
 
 function App() {
-  const [cart, setCart] = useState([])
-const [wishlist, Setwishlist] = useState([])
+
+  const cartData = useSelector(state => state.cartItems.productData)
+  const wishlistData = useSelector(state => state.wishlistItems.productData)
+  const dispatch = useDispatch()
+
 
 const[filterState, setfilterstate] = useState([])
 
@@ -22,8 +24,8 @@ console.log(filterState, "filtered state")
 
 
 const handleWishlist = (item) => {
-  if (wishlist.indexOf(item) !== -1) return;
-  Setwishlist([...wishlist, item]);
+  if (item && wishlistData.indexOf(item) !== -1) return;
+  dispatch({type:selectedWishlistItems, payload:[...wishlistData, item]})
   Swal.fire({
     position: 'center',
     icon: 'success',
@@ -32,11 +34,10 @@ const handleWishlist = (item) => {
     timer: 1500
   })
 };
-// console.log(wishlist)
 
 const handleCart = (item) => {
-  if (cart.indexOf(item) !== -1) return;
-  setCart([...cart, item]);
+  if (item && cartData.indexOf(item) !== -1) return;
+  dispatch({type:selectedCartItems, payload:[...cartData, item]})
   Swal.fire({
     position: 'center',
     icon: 'success',
@@ -50,11 +51,10 @@ const handleCart = (item) => {
   return (
     <>
     
-    <BrowserRouter>
-     <ROute cart={cart} setCart={setCart} wishlist={wishlist} handleCart={handleCart} handleWishlist={handleWishlist} Setwishlist={Setwishlist} cartL ={cart.length} setfilterstate={setfilterstate} filterState={filterState} name={"raghav"} />
-    </BrowserRouter>  
-    {/* <ApiIntergrate /> */}
-    {/* <Check /> */}
+   <BrowserRouter>
+     <ROute  handleCart={handleCart} handleWishlist={handleWishlist} setfilterstate={setfilterstate} filterState={filterState} name={"raghav"} />
+    </BrowserRouter>   
+    
     </>
   )
 }

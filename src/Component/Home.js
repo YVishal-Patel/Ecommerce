@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import './SignUp/SignUp.css'
-import newArr from './Data'
 import {Link} from 'react-router-dom'
 import Swal from 'sweetalert2'
 import HomeCarousel from './HomeData/HomeCarousel'
@@ -8,53 +7,35 @@ import Slider from './HomeData/CarouselSlider'
 import Slider1 from './HomeData/CarouselSlider1'
 import Slider2 from './HomeData/CarouselSlider2'
 import axios from 'axios'
+import { useSelector, useDispatch } from 'react-redux'
+import { ItemData } from '../Redux/Actions/Actions'
 
 function Home() {
   
+  const productData = useSelector((state)=> state.productData)
+  const dispatch = useDispatch()
 
-    const [HomeData, setHomeData] = useState(null)
-    console.log(HomeData) 
-    const [loading, setIsLoading] = useState(true)
-    const [error, setError] = useState('')
- 
-    useEffect(()=>{
-      setTimeout(()=>{
-      fetch('http://localhost:8000/posts')
+
+  const fetchData =  () =>{
+    return async (dispatch)=>{
+      await fetch('http://localhost:8000/posts')
       .then(res => res.json())
-      .then(res => {
-        setHomeData(res)
-        setIsLoading(false)
-      }
-      )
-      .catch(err => {
-        setError(err.msg)
+      .then(res =>{
+        dispatch({type:ItemData, payload:res, isLoading:false, error:''})
       })
-    //   .then( res =>{
-    //     if(!res.ok){
-    //       setError("could not fetch the data from that resources")
-    //     }
-    //      res.json()})
-    //   .then(res =>{ 
-    //     console.log(res, "response")
-    //   setHomeData(res)
-    //   setIsLoading(false)
-    // })
-    // .catch(err =>{
-    //    console.log(err)
-    //    setIsLoading(false)
-    //   })
-  },1000)},[])
+      .catch(err => {
+        dispatch({type:ItemData, error: err.msg})
+      })
+    }
+  }
+  
+  useEffect(()=>{
+     dispatch(fetchData())
+  },[])
     
-  // const removeData1 = async (id) =>{
-   
-
-  // }  
-
-         const removeData = async (id) =>{
-          let data1 = [...HomeData]
-          let data =  await axios.delete(`http://localhost:8000/posts/${id}`)
-            
-               
+         const removeData =  (id) =>{
+           let data1 = [...productData.productData]
+       
             let sweatData =   Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -70,13 +51,9 @@ function Home() {
                     'Deleted!',
                     'Your file has been deleted.',
                     'success'
-                  )
-                   
-    // console.log(id)
-    let finalData = data1.splice(data,1)
-    setHomeData(data1)
-                  // val.splice(id,1)
-              // setHomeData(val)
+                  )   
+                  let data =   axios.delete(`http://localhost:8000/posts/${id}`) 
+    dispatch({type:ItemData, payload:(data1.filter((item) => item.id !== id))})
             } else if(result.isDenied){
                 Swal.fire('not deleted')
             }
@@ -86,9 +63,9 @@ function Home() {
     
 return (
         <>
-        {error && <div> {error}</div>}
-        {loading && <div className='loading-spinner'> <i class="fa-solid fa-spinner spinner-sizing"></i></div>}
-            {HomeData && <HomeCarousel data={HomeData} />}
+        {productData.error && <div> {productData.error}</div>}
+        {productData.isLoading && <div className='loading-spinner'> <i class="fa-solid fa-spinner spinner-sizing"></i></div>}
+            {productData && <HomeCarousel data={productData.productData} />}
      <div className="container">
       <div className="largeScreen">
             <Slider /> 
@@ -100,8 +77,8 @@ return (
               <Slider2 />                    
               </div>
         <div className="row">
-        { HomeData &&
-          HomeData.map((item, id)=>{
+        { productData &&
+          productData.productData?.map((item, id)=>{
          
     
         return  <div key={item.id} className="col-xl-3 col-lg-4 col-md-6 col-sm-12 main-card-div ">
@@ -144,9 +121,7 @@ return (
 }
         </div>
     
-    </div> 
-    
-    
+    </div>  
     </>
 )
 }

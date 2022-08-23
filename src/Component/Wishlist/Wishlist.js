@@ -2,42 +2,41 @@ import React from 'react'
 import './Wishlist.css'
 import { Link, useParams } from 'react-router-dom'
 import '../Responsive.css'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectedWishlistItems } from '../../Redux/Actions/Actions'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-function Wishlist({ wishlist,Setwishlist}) {
-    console.log(wishlist)
+function Wishlist() {
 
-    let {id} = useParams()
-    console.log(id)
+    const wishListProducts = useSelector(state => state.wishlistItems.productData)
+
+    const dispatch = useDispatch()
+   
+    const navigate = useNavigate()
 
     const removeItem = async (id)=>{
-        let data = [...wishlist]
-         let remData = await axios.get(`http://localhost:8000/posts/${id}`)
-        data.splice(remData,1)
-        Setwishlist(data)
+        let data = [...wishListProducts]
+        console.log(data)
+        //  let remData = await axios.delete(`http://localhost:8000/posts/${id}`)
+         dispatch({type:selectedWishlistItems, payload:wishListProducts.filter((item)=> item.id !== id)})
     }
 
-    // const handleCartData = (id) =>{
-    //     let data = [...wishlist]
-    //     let removedData = data.splice(id, 1)
-    //     Setwishlist(data)
-    //     if(cart.indexOf(removedData) !== id) {;
-    //     setCart([...cart, (removedData)].flat())
-    // }
-    //     console.log(removedData)
-    //     console.log(cart)
-    // }
-
+{if(wishListProducts.length == 0 || undefined){
+    return ( <div className='d-flex justify-content-center mt-5'>
+         <span className='mx-3 fs-4'>Wishlist is empty</span>
+         <button className='btn btn-secondary p-2' onClick={()=> navigate('/home')}>Go to Home</button>
+          </div>)
+}}
   return (
       <>
-     
     <div  className="container-fluid wish-div-main-bg-container">
           <div className="container  wishlist-main-container">
               <div className="wishlist-body">
               <div className="wishlist-heading ">
                   <span className="wish-heading "> My Wishlist</span>
               </div>
-              {wishlist.map((item, id)=>{
+              { wishListProducts?.map((item, id)=>{
               return   <div key={id} className="main-wish-container">
                   <div className="row main-wish-container-row">
                       <div className="col-2   wish-images">
@@ -83,23 +82,24 @@ function Wishlist({ wishlist,Setwishlist}) {
               <div className="wishlist-heading ">
                   <span className="wish-heading "> My Wishlist</span>
               </div>
-              {wishlist.map((item, id)=>{
+              {wishListProducts?.map((item)=>{
+                const {productName, productPrice, productDescription, productImg, id} = item
               return   <div key={id} className="main-wish-container">
                   <div className="row main-wish-container-row">
                       <div className="col-3  wish-images">
                           <div className="small-scr-wish-images">
-                      <img src={item.ProductImg} alt=" not found" className='wishlist-img' width='120px' height="120px" />
+                      <img src={productImg} alt=" not found" className='wishlist-img' width='120px' height="120px" />
                       </div>
                       </div>
 
                      <div className="col-9 wish-small-container">
                      <div className="wishlist-small-data">
-                      <Link to={`/viewpage/${item.id}`}>
-                       <span className="wishlist-data">{item.ProductName}</span>
+                      <Link to={`/viewpage/${id}`}>
+                       <span className="wishlist-data">{productName}</span>
                        </Link>
                        </div>
                        <div className="wish-list-price d-flex justify-content-between">
-                       <div className="wish-price">{"₹ " + item.ProductPrice}</div>
+                       <div className="wish-price">{"₹ " + productPrice}</div>
                        <br />
                        <div className="rating-small-data">
                        <span className='rating-stars'>
@@ -114,7 +114,7 @@ function Wishlist({ wishlist,Setwishlist}) {
                        </div>
 
                        <div className="">
-                       <span className="wish-description">{item.ProductDescription}</span>
+                       <span className="wish-description">{productDescription}</span>
                        </div>
 
                        <div className="wish-operation">

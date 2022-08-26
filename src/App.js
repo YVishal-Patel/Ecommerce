@@ -4,7 +4,7 @@ import SignUp from './Component/SignUp/SignUp'
 import { BrowserRouter,Navigate, useNavigate } from 'react-router-dom'
 import ROute from './Component/ROute'
 import Swal from 'sweetalert2'
-import { selectedCartItems, selectedWishlistItems } from './Redux/Actions/Actions'
+import { selectedCartItems, wishlistItem } from './Redux/Actions/Actions'
 import { useSelector, useDispatch } from 'react-redux'
 
 
@@ -13,7 +13,7 @@ import { useSelector, useDispatch } from 'react-redux'
 function App() {
 
   const cartData = useSelector(state => state.cartItems.productData)
-  const wishlistData = useSelector(state => state.wishlistItems.productData)
+  const wishlistData = useSelector(state => state.wishlist.productData)
   const dispatch = useDispatch()
 
 
@@ -25,26 +25,24 @@ console.log(filterState, "filtered state")
 
 const handleWishlist = (item) => {
   if (item && wishlistData.indexOf(item) !== -1) return;
-  dispatch({type:selectedWishlistItems, payload:[...wishlistData, item]})
-  Swal.fire({
-    position: 'center',
-    icon: 'success',
-    title: 'Item Added to wishlist',
-    showConfirmButton: false,
-    timer: 1500
-  })
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Item Added to wishlist',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  let wishlistDatas = [...wishlistData, item]
+  const unique = [...new Map(wishlistDatas.map((m) => [m.id, m])).values()];
+  dispatch({type:wishlistItem, payload:unique})
+ 
 };
 
 const handleCart = (item) => {
   if (item && cartData.indexOf(item) !== -1) return;
-  dispatch({type:selectedCartItems, payload:[...cartData, item]})
-  Swal.fire({
-    position: 'center',
-    icon: 'success',
-    title: 'Item Added to Cart',
-    showConfirmButton: false,
-    timer: 1500
-  })
+  let data = [...cartData, item] 
+  const unique = [...new Map(data.map((m) => [m.id, m])).values()];
+  dispatch({type:selectedCartItems, payload:unique})
 };
 
 

@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from 'react'
-import newArr from './Data'
+import React, { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectedProductItem } from '../Redux/Actions/Actions'
+import { selectedProductItem, selectedProductImg } from '../Redux/Actions/Actions'
 import './SignUp/SignUp.css'
 import './Responsive.css'
+import { setConstantValue } from 'typescript'
 
 
 function ViewPage({handleCart,  handleWishlist}) {
 
     const singleProductItem = useSelector(state =>state.singleItem)
-    console.log(singleProductItem.productData)
+    const selectedImg = useSelector(state => state.singleItem.productImg)
+    const wishListProducts = useSelector(state => state.wishlist.productData)
+    const cartData = useSelector(state => state.cartItems.productData)
     const dispatch = useDispatch()
+    const [featuredImg,setSelectedImg] = useState(selectedImg);
+    console.log(featuredImg, "featuredimg")
 
     let {id} = useParams()
 
@@ -20,7 +24,7 @@ function ViewPage({handleCart,  handleWishlist}) {
         fetch(`http://localhost:8000/posts/${id}`)
         .then(res => res.json())
         .then(res => {
-        dispatch({type:selectedProductItem, payload:res, isLoading:false, error:''})
+        dispatch({type:selectedProductItem, payload:res, isLoading:false, error:'',imageChange:false})
         } )
         .catch(err =>{
             if(err){
@@ -33,15 +37,22 @@ function ViewPage({handleCart,  handleWishlist}) {
       useEffect(()=>{
         dispatch(fetchData())
       }, [])
-  
+
+
+      const handleMultiImg = (e,id) =>{
+        //  setSelectedImg(e.target.src);
+        let data = singleProductItem.productData.multiProductImg.filter((item)=> item.id == id)
+        setSelectedImg(data[0].img)
+      }
+
+
         const  {productName, productPrice, productImg} = singleProductItem.productData
-      
   return (
       <>    
          <div  className="container-fluid main-div-view ">
       <div className="container">
  <div className="row mt-4">
-           <div id="viewpage-data" className="col-md-6 col-sm-12 ">
+           <div id="viewpage-data" className="col-md-6 col-sm-12 ">img
                       <div className="data-type">
                <div className="name-type">
                    <span className="name-type1"> {productName} </span>
@@ -70,16 +81,30 @@ function ViewPage({handleCart,  handleWishlist}) {
               <div className="col-1 data"></div>
              <div id="viewpage-img" className="col-12 col-md-5 col-sm-12  view-types-data">
            <div className=" img-type">
-               <img src={productImg} alt="not found" width='100%' height='430px' />
+               <img src={`${featuredImg}` || productImg} alt="not found" width='100%' height='430px' />
            </div>   
-           <div className="btns d-flex justify-content-between">
+
+           <div className="multiImg-viewpage my-5 d-flex justify-content-start flex-wrap">
+            {singleProductItem.productData?.multiProductImg && singleProductItem.productData?.multiProductImg.map((img,idx)=>{
+                return(<div key={idx}  className='multiImg mx-2'> 
+                <img onClick={(e)=> handleMultiImg(e,img.id)} src={`${img.img}`} alt="not found" width="50px" height="50px" />
+                </div>)
+            })}
+           </div>
+
+           <div className="btns d-flex justify-content-between my-4">
            <div className="wishlist-btn">
-                   <button onClick={()=>handleWishlist(singleProductItem.productData)} className="wishlist-btn1">Add to Wishlist <i class="fa-solid fa-right-long arrow1"></i></button>
+                   <button style={{cursor:wishListProducts.map((item)=> item.id !== singleProductItem.productData.id || "not-allowed")}}   onClick={()=>handleWishlist(singleProductItem.productData)} className="wishlist-btn1">Add to Wishlist <i class="fa-solid fa-right-long arrow1"></i></button>
                </div>
                <div className="wishlist-btn">
-                   <button onClick={()=>handleCart(singleProductItem.productData)} className="wishlist-btn1">Add to Cart <i class="fa-solid fa-right-long arrow1"></i></button>
+                   <button style={{cursor:cartData.map((item)=> item.id !== singleProductItem.productData.id || "not-allowed")}} onClick={()=>handleCart(singleProductItem.productData)} className="wishlist-btn1">Add to Cart <i class="fa-solid fa-right-long arrow1"></i></button>
                </div>
                </div>
+
+                <div>
+                </div>
+
+               
                </div>
        </div>
        

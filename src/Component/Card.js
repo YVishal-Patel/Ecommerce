@@ -40,13 +40,15 @@ function Card() {
         console.log(TotalPrice)}
         dispatch({type:totalPrice, payload: Price})
       }
+  const removeItem = (id) =>{
+    dispatch({type:selectedCartItems, payload:cartData.filter((item)=> item.id != id)})
+  }
 
   useEffect(()=>{
     handlePrice();
     totalValue();
   })
 
-  console.log(cartData, "cartData")
 
 {if(cartData.length !== 0){
 
@@ -77,16 +79,18 @@ return(<> <div className="container cart-body-main-container">
       <div className="item-description">{productDescription}</div>
     </div>
   </div>
-  <div className="quantity-card col-2">
+  <div className="quantity-card col-2 mt-n5">
     <div className="quantity-card">
     <button className='btn-value' disabled={quantity == 9} onClick={()=>handlePlus(id , 1)}> + </button>
     <input className="quantity-value"  value={quantity}    />
    <button className='btn-value' disabled={quantity == 1} onClick={()=>handlePlus(id, -1)}> - </button> 
     </div>
   </div>
-  <div className="col-2 item-price">
+  <div className="col-2 item-price d-flex flex-column mt-n5">
     <div className="item-ProductPrice">{productPrice}</div>
+  <span  onClick={()=>removeItem(id)}> <i class="fa-solid fa-trash-can"></i></span>
   </div>
+
 </div>
 })
 }

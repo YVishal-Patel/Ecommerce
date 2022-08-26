@@ -6,6 +6,15 @@
       "productDescription": "Some quick example text to build on the card title and make up the bulk of the card's content.",
       "productImg": "/Assets/img3.webp",
       "brands": "Everlane",
+      "multiProductImg":[
+                         {"id":1, "img":"/Assets/img3.webp"},
+                         {"id":2,"img":"/Assets/img13.webp"},
+                         {"id":3,"img":"/Assets/img14.webp"},
+                         {"id":4,"img":"/Assets/img10.webp"},
+                         {"id":5,"img":"/Assets/img14.webp"},
+                         {"id":6,"img":"/Assets/img4.webp"},
+                         {"id":7,"img":"/Assets/img11.webp"},
+                         {"id":8,"img":"/Assets/img10.webp"}],
       "quantity": 1,
       "id": 22
     },

@@ -3,16 +3,18 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { userSignin } from '../../Redux/Actions/Actions';
 
 import "./SignUp.css"
 
 function SignUp() {
 
+  const userSignIn = useSelector(state => state.auth_Sign_in)
+  console.log(userSignIn, "userSignin")
   const dispatch = useDispatch()
-  const userSginData = useSelector((state)=> state.logInData?.userData)
-  console.log(userSginData)
+
+  console.log(userSignIn)
   
   const [country , setCountry] = useState('')
   const [ region , setRegion] = useState('')
@@ -27,10 +29,6 @@ function SignUp() {
     setRegion(val);
   }
 
-  // useEffect(() => {
-    // simulate async api call with set timeout
-    // setTimeout(() => setUser({ title: 'Mr', firstName: 'Frank', lastName: 'Murphy' }), 1000);
-// }, []);
 
   const validationSchema = Yup.object().shape({
     fullname: Yup.string().required('Fullname is required'),
@@ -68,9 +66,10 @@ function SignUp() {
   } = useForm({
     resolver: yupResolver(validationSchema)
   });
-  const onSubmit = data => {
-    let userData = data
+  const onSubmit = (data, country, region) => {
+    let userData = JSON.stringify(country, region )
     console.log(userData)
+    dispatch({type:userSignin, payload:{...data, country, region}})
     // reset()
     return false;
   };
@@ -294,11 +293,11 @@ function SignUp() {
         </div>
       </form>
 }
-{/* {user &&
+{user &&
                     <div className="text-center p-3">
                         <span className="spinner-border spinner-border-lg align-center"></span>
                     </div>
-                } */}
+                }
     </div>
           </div>
           </div>

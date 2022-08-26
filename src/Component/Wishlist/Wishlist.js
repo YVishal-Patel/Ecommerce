@@ -3,13 +3,13 @@ import './Wishlist.css'
 import { Link, useParams } from 'react-router-dom'
 import '../Responsive.css'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectedWishlistItems } from '../../Redux/Actions/Actions'
+import { wishlistItem } from '../../Redux/Actions/Actions'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 function Wishlist() {
 
-    const wishListProducts = useSelector(state => state.wishlistItems.productData)
+    const wishListProducts = useSelector(state => state.wishlist.productData)
 
     const dispatch = useDispatch()
    
@@ -19,7 +19,7 @@ function Wishlist() {
         let data = [...wishListProducts]
         console.log(data)
         //  let remData = await axios.delete(`http://localhost:8000/posts/${id}`)
-         dispatch({type:selectedWishlistItems, payload:wishListProducts.filter((item)=> item.id !== id)})
+         dispatch({type:wishlistItem, payload:wishListProducts.filter((item)=> item.id !== id)})
     }
 
 {if(wishListProducts.length == 0 || undefined){

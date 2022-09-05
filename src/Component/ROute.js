@@ -18,6 +18,7 @@ import Watches from './Watches'
 import NoMatch from './NoMatch'
 import Electronics from './Electronics'
 import Dresses from './Dresses'
+import Address from './Checkout/MultipleAddress/Address'
 
 
 
@@ -47,6 +48,7 @@ function ROute({ handleCart, handleWishlist,  handleState,filterFunc,setfilterst
           <Route path="/shoes" element={<Shoes />} />
           <Route path="/electronics" element={<Electronics />} />
           <Route path="/dresses" element={<Dresses />} />
+          <Route path='/checkout' element={<Address />} />
           <Route path='*' element={<NoMatch />}  />
 
       </Routes>

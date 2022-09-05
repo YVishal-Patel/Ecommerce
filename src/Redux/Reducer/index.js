@@ -5,6 +5,8 @@ import { selectedCartsItems } from "./selectedCart";
 import { wishlistItems } from "./wishlistData";
 import { selectedProductPrice } from "./ProductPrice";
 import { userSignIn } from "./UserSignIn";
+import AddressReducer from "./AddressUserData";
+
 
 
 const allReducer = combineReducers({
@@ -13,7 +15,8 @@ const allReducer = combineReducers({
     cartItems:selectedCartsItems,
     wishlist:wishlistItems,
     totalPrice:selectedProductPrice,
-    auth_Sign_in: userSignIn
+    auth_Sign_in: userSignIn,
+    addressUserData:AddressReducer
 })
 
 export default allReducer;

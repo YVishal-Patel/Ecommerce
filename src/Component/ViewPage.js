@@ -4,10 +4,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import { selectedProductItem, selectedProductImg } from '../Redux/Actions/Actions'
 import './SignUp/SignUp.css'
 import './Responsive.css'
-import { setConstantValue } from 'typescript'
 
 
 function ViewPage({handleCart,  handleWishlist}) {
+
+    // const src 
 
     const singleProductItem = useSelector(state =>state.singleItem)
     const selectedImg = useSelector(state => state.singleItem.productImg)
@@ -15,7 +16,8 @@ function ViewPage({handleCart,  handleWishlist}) {
     const cartData = useSelector(state => state.cartItems.productData)
     const dispatch = useDispatch()
     const [featuredImg,setSelectedImg] = useState(selectedImg);
-    console.log(featuredImg, "featuredimg")
+    
+    console.log(singleProductItem, "singleProductItem")
 
     let {id} = useParams()
 

@@ -1,0 +1,121 @@
+.squeeze-sidebar{
+    background-color: rgb(237, 234, 234);
+    height: 78vh;
+}
+.svg-scaling{
+    position: absolute;
+    transform: scale(.8);
+}
+.circleTimerAni{
+    stroke: #fd7279;
+    stroke-width: 15;
+    stroke-linecap: round;
+    fill: none;
+    stroke-dasharray: 1256;
+    stroke-dashoffset: 0;
+    animation-timing-function: linear;
+}
+.circleTimerAni2{
+    stroke: #fd7279;
+    stroke-width: 15;
+    stroke-linecap: round;
+    fill: none;
+    stroke-dasharray: 1256;
+    stroke-dashoffset: 0;
+    animation-timing-function: linear;
+}
+.breath-circle{
+    position: absolute;
+    height: 100%;
+    left: -14.5rem;
+    left: 10;
+    top: 0.6rem;
+}
+.circle{
+    width: 240px;
+    height: 240px;
+    border-radius: 170px;
+    background-color: #2874F0;
+    color: #f5f5f5;
+    box-shadow: 0 0 1px rgb(0 0 0 / 5%);
+    position: absolute;
+    transform: scale(.8);
+}
+.text-light{
+    color: #f8f9fa!important;
+    opacity: 1111;
+}
+
+
+.loader-wrapper {
+	height: 700px;
+	width: 700px;
+	position: relative;
+    margin-top: -13.8rem;
+    margin-left: -1.5rem;
+}
+.loader {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	transform-origin: center;
+	animation: rotate 3s ease ;
+}
+.path {
+	stroke: black;
+	stroke-dasharray: 0, 250;
+	stroke-dashoffset: 0;
+}
+.timerNumber{
+    font-size: 1.6rem;
+    font-weight: 600;
+    position: absolute;
+    top: 10.8rem;
+    left: 19.8rem;
+    z-index: 999999;
+    color: #fff;
+}
+.rest-data{
+    margin-top: -1.6rem;
+    font-size: 1.4rem;
+}
+
+@keyframes dash-animation {
+	0% {
+		stroke-dashoffset: 0;
+		stroke-dasharray: 1, 250;
+	}
+	50% {
+		stroke-dashoffset: -35px;
+		stroke-dasharray: 95, 250;
+	}
+	100% {
+		stroke-dasharray: 95, 250;
+		stroke-dashoffset: -124px;
+	}
+}
+@keyframes rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+@keyframes color {
+	100%,
+	0% {
+		stroke: red;
+	}
+	40% {
+		stroke: rgb(0, 191, 255);
+	}
+	60% {
+		stroke: rgb(223, 73, 98);
+	}
+	80% {
+		stroke: rgb(65, 99, 16);
+	}
+	90% {
+		stroke: rgb(51, 51, 4);
+	}
+}

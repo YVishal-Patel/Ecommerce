@@ -6,7 +6,7 @@ import mastercard from './mastercard.png'
 import Rupay from './Rupay.png'
 import Paytm from './paytm.png'
 import './Responsive.css'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectedCartItems, selectedCartPrice, totalPrice } from '../Redux/Actions/Actions'
 
@@ -118,7 +118,7 @@ return(<> <div className="container cart-body-main-container">
                   <span>{"₹"}{discountedPrice}</span>
                 </div>
                 <br />
-                <button className=' w-100 checkout'>checkout <i class="fa-solid fa-right-long arrow1"></i></button>
+              <Link to='/checkout'>  <button className=' w-100 checkout'>checkout <i class="fa-solid fa-right-long arrow1"></i></button></Link>
                   <hr className='mt-4'/>
                 <div className="security mt-4 d-flex justify-content-center">
                   <i class="fa-solid fa-lock"></i>

@@ -6,6 +6,9 @@ import ROute from './Component/ROute'
 import Swal from 'sweetalert2'
 import { selectedCartItems, wishlistItem } from './Redux/Actions/Actions'
 import { useSelector, useDispatch } from 'react-redux'
+import DemoAction from './Component/DemoAction'
+import DemoClass from './DemoClass'
+import JustLike from './Component/JustLike'
 
 
 
@@ -20,7 +23,7 @@ function App() {
 const[filterState, setfilterstate] = useState([])
 
 
-console.log(filterState, "filtered state")
+
 
 
 const handleWishlist = (item) => {
@@ -50,7 +53,9 @@ const handleCart = (item) => {
     <>
     
    <BrowserRouter>
-     <ROute  handleCart={handleCart} handleWishlist={handleWishlist} setfilterstate={setfilterstate} filterState={filterState} name={"raghav"} />
+     {/* <ROute  handleCart={handleCart} handleWishlist={handleWishlist} setfilterstate={setfilterstate} filterState={filterState} name={"raghav"} /> */}
+      <DemoClass /> 
+     {/* <JustLike /> */}
     </BrowserRouter>   
     
     </>

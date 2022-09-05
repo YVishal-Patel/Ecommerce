@@ -6,6 +6,8 @@
       "productDescription": "Some quick example text to build on the card title and make up the bulk of the card's content.",
       "productImg": "/Assets/img3.webp",
       "brands": "Everlane",
+      "quantity": 1,
+      "id": 22,
       "multiProductImg":[
                          {"id":1, "img":"/Assets/img3.webp"},
                          {"id":2,"img":"/Assets/img13.webp"},
@@ -14,9 +16,9 @@
                          {"id":5,"img":"/Assets/img14.webp"},
                          {"id":6,"img":"/Assets/img4.webp"},
                          {"id":7,"img":"/Assets/img11.webp"},
-                         {"id":8,"img":"/Assets/img10.webp"}],
-      "quantity": 1,
-      "id": 22
+                         {"id":8,"img":"/Assets/img10.webp"}
+                        ]
+     
     },
     {
       "productName": "Jeans slim fit pant",
@@ -25,7 +27,18 @@
       "productImg": "/Assets/img13.webp",
       "brands": "Everlane",
       "quantity": 1,
-      "id": 28
+      "id": 28,
+      "multiProductImg":[
+        {"id":1, "img":"/Assets/img3.webp"},
+        {"id":2,"img":"/Assets/img13.webp"},
+        {"id":3,"img":"/Assets/img14.webp"},
+        {"id":4,"img":"/Assets/img10.webp"},
+        {"id":5,"img":"/Assets/img14.webp"},
+        {"id":6,"img":"/Assets/img4.webp"},
+        {"id":7,"img":"/Assets/img11.webp"},
+        {"id":8,"img":"/Assets/img10.webp"}
+       ]
+
     },
     {
       "productName": "Casio watch for men",
@@ -34,7 +47,17 @@
       "productImg": "/Assets/img14.webp",
       "brands": "casio",
       "quantity": 1,
-      "id": 32
+      "id": 32,
+      "multiProductImg":[
+        {"id":1, "img":"/Assets/img3.webp"},
+        {"id":2,"img":"/Assets/img13.webp"},
+        {"id":3,"img":"/Assets/img14.webp"},
+        {"id":4,"img":"/Assets/img10.webp"},
+        {"id":5,"img":"/Assets/img14.webp"},
+        {"id":6,"img":"/Assets/img4.webp"},
+        {"id":7,"img":"/Assets/img11.webp"},
+        {"id":8,"img":"/Assets/img10.webp"}
+       ]
     },
     {
       "productName": "Slim fit jeans",
@@ -43,7 +66,17 @@
       "productImg": "/Assets/img14.webp",
       "brands": "Calvin Klein",
       "quantity": 1,
-      "id": 33
+      "id": 33,
+      "multiProductImg":[
+        {"id":1, "img":"/Assets/img3.webp"},
+        {"id":2,"img":"/Assets/img13.webp"},
+        {"id":3,"img":"/Assets/img14.webp"},
+        {"id":4,"img":"/Assets/img10.webp"},
+        {"id":5,"img":"/Assets/img14.webp"},
+        {"id":6,"img":"/Assets/img4.webp"},
+        {"id":7,"img":"/Assets/img11.webp"},
+        {"id":8,"img":"/Assets/img10.webp"}
+       ]
     },
     {
       "productName": "Kurta & Plazzo",
@@ -52,7 +85,17 @@
       "productImg": "/Assets/img10.webp",
       "brands": "Calvin Klein",
       "quantity": 1,
-      "id": 35
+      "id": 35,
+      "multiProductImg":[
+        {"id":1, "img":"/Assets/img3.webp"},
+        {"id":2,"img":"/Assets/img13.webp"},
+        {"id":3,"img":"/Assets/img14.webp"},
+        {"id":4,"img":"/Assets/img10.webp"},
+        {"id":5,"img":"/Assets/img14.webp"},
+        {"id":6,"img":"/Assets/img4.webp"},
+        {"id":7,"img":"/Assets/img11.webp"},
+        {"id":8,"img":"/Assets/img10.webp"}
+       ]
     },
     {
       "productName": "Jeans slim for men",
@@ -61,7 +104,17 @@
       "productImg": "/Assets/img10.webp",
       "brands": "Uniqlo",
       "quantity": 1,
-      "id": 36
+      "id": 36,
+      "multiProductImg":[
+        {"id":1, "img":"/Assets/img3.webp"},
+        {"id":2,"img":"/Assets/img13.webp"},
+        {"id":3,"img":"/Assets/img14.webp"},
+        {"id":4,"img":"/Assets/img10.webp"},
+        {"id":5,"img":"/Assets/img14.webp"},
+        {"id":6,"img":"/Assets/img4.webp"},
+        {"id":7,"img":"/Assets/img11.webp"},
+        {"id":8,"img":"/Assets/img10.webp"}
+       ]
     },
     {
       "productName": "Jeans slim for men",
@@ -70,7 +123,17 @@
       "productImg": "/Assets/img11.webp",
       "brands": "Velva",
       "quantity": 1,
-      "id": 37
+      "id": 37,
+      "multiProductImg":[
+        {"id":1, "img":"/Assets/img3.webp"},
+        {"id":2,"img":"/Assets/img13.webp"},
+        {"id":3,"img":"/Assets/img14.webp"},
+        {"id":4,"img":"/Assets/img10.webp"},
+        {"id":5,"img":"/Assets/img14.webp"},
+        {"id":6,"img":"/Assets/img4.webp"},
+        {"id":7,"img":"/Assets/img11.webp"},
+        {"id":8,"img":"/Assets/img10.webp"}
+       ]
     },
     {
       "productName": "Shirt for men",
@@ -79,7 +142,17 @@
       "productImg": "/Assets/img11.webp",
       "brands": "Roadster",
       "quantity": 1,
-      "id": 39
+      "id": 39,
+      "multiProductImg":[
+        {"id":1, "img":"/Assets/img3.webp"},
+        {"id":2,"img":"/Assets/img13.webp"},
+        {"id":3,"img":"/Assets/img14.webp"},
+        {"id":4,"img":"/Assets/img10.webp"},
+        {"id":5,"img":"/Assets/img14.webp"},
+        {"id":6,"img":"/Assets/img4.webp"},
+        {"id":7,"img":"/Assets/img11.webp"},
+        {"id":8,"img":"/Assets/img10.webp"}
+       ]
     },
     {
       "productName": "Shirt for men",
@@ -88,7 +161,17 @@
       "productImg": "/Assets/img14.webp",
       "brands": "Roadster",
       "quantity": 1,
-      "id": 41
+      "id": 41,
+      "multiProductImg":[
+        {"id":1, "img":"/Assets/img3.webp"},
+        {"id":2,"img":"/Assets/img13.webp"},
+        {"id":3,"img":"/Assets/img14.webp"},
+        {"id":4,"img":"/Assets/img10.webp"},
+        {"id":5,"img":"/Assets/img14.webp"},
+        {"id":6,"img":"/Assets/img4.webp"},
+        {"id":7,"img":"/Assets/img11.webp"},
+        {"id":8,"img":"/Assets/img10.webp"}
+       ]
     }
   ]
 }

@@ -8,3 +8,4 @@ export const filterProductData = 'FILTER_PRODUCT_DATA'
 export const wishlistItem = 'WISHLIST_ITEMS';
 export const userSignin = 'USER_SIGN_IN';
 export const countryAuthData = 'COUNTRY_AUTH_DATA';
+export const addressData =  'ADDRESS_USER_DATA';
